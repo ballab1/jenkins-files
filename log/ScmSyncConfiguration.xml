@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<log>
+  <name>ScmSyncConfiguration</name>
+  <targets>
+    <target>
+      <name>hudson.plugins.scm_sync_configuration</name>
+      <level>300</level>
+    </target>
+  </targets>
+</log>
