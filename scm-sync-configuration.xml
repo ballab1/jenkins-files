@@ -6,13 +6,13 @@
   <displayStatus>true</displayStatus>
   <commitMessagePattern>[message]</commitMessagePattern>
   <manualSynchronizationIncludes>
-    <include>init.groovy.d</include>
-    <include>log</include>
-    <include>nodes</include>
-    <include>parsers</include>
-    <include>scriptler</include>
-    <include>secrets</include>
-    <include>userContent</include>
-    <include>workflow-libs</include>
+    <include>init.groovy.d/**</include>
+    <include>log/**</include>
+    <include>nodes/**</include>
+    <include>parsers/**</include>
+    <include>scriptler/**</include>
+    <include>secrets/**</include>
+    <include>userContent/**</include>
+    <include>workflow-libs/**</include>
   </manualSynchronizationIncludes>
 </hudson.plugins.scm__sync__configuration.ScmSyncConfigurationPlugin>
