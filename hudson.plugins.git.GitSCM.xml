@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <hudson.plugins.git.GitSCM_-DescriptorImpl plugin="git@3.0.5">
-  <generation>2</generation>
+  <generation>6</generation>
   <globalConfigName>Bob Ballantyne</globalConfigName>
   <globalConfigEmail>bob.ballantyne@emc.com</globalConfigEmail>
   <createAccountBasedOnEmail>false</createAccountBasedOnEmail>
