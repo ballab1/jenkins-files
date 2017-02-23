@@ -54,12 +54,12 @@
   </axes>
   <builders>
     <hudson.tasks.Shell>
-      <command>tar -cvzf cfg.tar.gz ./tarfiles.lst</command>
+      <command>tar -cvzf $(uname -n).cfg.tar.gz ./tarfiles.lst</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers>
     <hudson.tasks.ArtifactArchiver>
-      <artifacts>cfg.tar.gz</artifacts>
+      <artifacts>*cfg.tar.gz</artifacts>
       <allowEmptyArchive>false</allowEmptyArchive>
       <onlyIfSuccessful>true</onlyIfSuccessful>
       <fingerprint>true</fingerprint>
