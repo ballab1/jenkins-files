@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<org.jenkins.plugins.statistics.gatherer.StatisticsConfiguration plugin="statistics-gatherer@1.1.1">
+  <queueUrl></queueUrl>
+  <buildUrl></buildUrl>
+  <projectUrl></projectUrl>
+  <scmCheckoutUrl></scmCheckoutUrl>
+  <buildStepUrl></buildStepUrl>
+  <awsRegion></awsRegion>
+  <awsAccessKey></awsAccessKey>
+  <awsSecretKey></awsSecretKey>
+  <snsTopicArn></snsTopicArn>
+  <queueInfo>true</queueInfo>
+  <buildInfo>true</buildInfo>
+  <projectInfo>true</projectInfo>
+  <scmCheckoutInfo>true</scmCheckoutInfo>
+  <buildStepInfo>true</buildStepInfo>
+  <shouldSendApiHttpRequests>false</shouldSendApiHttpRequests>
+  <shouldPublishToAwsSnsQueue>false</shouldPublishToAwsSnsQueue>
+</org.jenkins.plugins.statistics.gatherer.StatisticsConfiguration>
