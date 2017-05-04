@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<fingerprint>
+  <timestamp>2017-03-15 06:41:08.130 UTC</timestamp>
+  <original>
+    <name>Backup config files/label=ubuntu-s3</name>
+    <number>22</number>
+  </original>
+  <md5sum>31023a133b0efbd224c76a99fa802174</md5sum>
+  <fileName>ubuntu-s3.cfg.tar.gz</fileName>
+  <usages>
+    <entry>
+      <string>Backup config files/label=ubuntu-s3</string>
+      <ranges>22</ranges>
+    </entry>
+  </usages>
+  <facets/>
+</fingerprint>

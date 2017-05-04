@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<fingerprint>
+  <timestamp>2017-04-14 06:41:08.851 UTC</timestamp>
+  <original>
+    <name>Backup config files/label=ubuntu-s1</name>
+    <number>53</number>
+  </original>
+  <md5sum>9911abf60d156471a6c11d86a7b0d306</md5sum>
+  <fileName>ubuntu-s1.cfg.tar.gz</fileName>
+  <usages>
+    <entry>
+      <string>Backup config files/label=ubuntu-s1</string>
+      <ranges>53</ranges>
+    </entry>
+  </usages>
+  <facets/>
+</fingerprint>

@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<org.jenkins.plugins.audit2db.internal.DbAuditPublisherDescriptorImpl plugin="audit2db@0.5">
+  <useJndi>false</useJndi>
+  <jdbcDriver>com.mysql.jdbc:Driver</jdbcDriver>
+  <jdbcUrl>jdbc:mysql://10.1.3.6:3456</jdbcUrl>
+  <jdbcUser>bobb</jdbcUser>
+  <jdbcPassword>MTIzT2xlYXJ5</jdbcPassword>
+</org.jenkins.plugins.audit2db.internal.DbAuditPublisherDescriptorImpl>

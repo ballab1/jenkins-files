@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<fingerprint>
+  <timestamp>2017-04-28 05:58:05.832 UTC</timestamp>
+  <md5sum>5749ef35d88d7a9c5a88dab4a8ce7e41</md5sum>
+  <fileName>Credential id=935a7b57-da74-45f7-9119-5a0529afb8ae name=ballab1/****** (GitHub)</fileName>
+  <usages>
+    <entry>
+      <string>Backup config files/label=ubuntu-s3</string>
+      <ranges>67-72</ranges>
+    </entry>
+    <entry>
+      <string>Backup config files/label=ubuntu-s2</string>
+      <ranges>67-72</ranges>
+    </entry>
+    <entry>
+      <string>Backup config files</string>
+      <ranges>67-72</ranges>
+    </entry>
+    <entry>
+      <string>Backup config files/label=ubuntu-s1</string>
+      <ranges>67-72</ranges>
+    </entry>
+    <entry>
+      <string>Install Linux updates/label=ubuntu-s3</string>
+      <ranges>80-90</ranges>
+    </entry>
+    <entry>
+      <string>Install Linux updates/label=ubuntu-s2</string>
+      <ranges>80-90</ranges>
+    </entry>
+    <entry>
+      <string>Install Linux updates/label=ubuntu-s1</string>
+      <ranges>80-90</ranges>
+    </entry>
+    <entry>
+      <string>Install Linux updates</string>
+      <ranges>80-90</ranges>
+    </entry>
+  </usages>
+  <facets>
+    <com.cloudbees.plugins.credentials.fingerprints.ItemCredentialsFingerprintFacet plugin="credentials@2.1.13">
+      <timestamp>1493853843508</timestamp>
+      <itemFullName>Install Linux updates</itemFullName>
+      <timestamp0>1493853428583</timestamp0>
+    </com.cloudbees.plugins.credentials.fingerprints.ItemCredentialsFingerprintFacet>
+  </facets>
+</fingerprint>

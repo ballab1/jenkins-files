@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<fingerprint>
+  <timestamp>2017-03-29 06:41:04.262 UTC</timestamp>
+  <md5sum>8082b559389da6415458445b01e4d5c3</md5sum>
+  <fileName>ubuntu-s2.cfg.tar.gz</fileName>
+  <usages>
+    <entry>
+      <string>Backup config files/label=ubuntu-s2</string>
+      <ranges>36</ranges>
+    </entry>
+  </usages>
+  <facets/>
+</fingerprint>
