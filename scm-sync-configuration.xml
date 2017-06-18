@@ -6,11 +6,11 @@
   <displayStatus>true</displayStatus>
   <commitMessagePattern>[message]</commitMessagePattern>
   <manualSynchronizationIncludes>
-    <include>init.groovy.d/**</include>
+    <include>fingerprints/*</include>
     <include>log/**</include>
     <include>nodes/**</include>
     <include>parsers/**</include>
-    <include>scriptler/**</include>
+    <include>scm-sync-configuration/**</include>
     <include>secrets/**</include>
     <include>userContent/**</include>
     <include>workflow-libs/**</include>

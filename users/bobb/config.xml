@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <user>
   <fullName>Bob Ballantyne</fullName>
-  <description></description>
+  <description>Main user</description>
   <properties>
     <jenkins.security.ApiTokenProperty>
       <apiToken>{AQAAABAAAAAwRGwl/v6T20vnONCmcxtmycSZ98k8IZGvtdyfeJaFKk05L1Aog/1rkKyBwm0TaO5ll8Mm1UjcRjatpm9jTu0Q7w==}</apiToken>
