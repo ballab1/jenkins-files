@@ -1,9 +1,9 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <jenkins.plugins.slack.SlackNotifier_-DescriptorImpl plugin="slack@2.2">
   <baseUrl></baseUrl>
-  <teamDomain></teamDomain>
+  <teamDomain>soho-ball</teamDomain>
   <token></token>
-  <tokenCredentialId></tokenCredentialId>
+  <tokenCredentialId>19f4e2cf-7737-4226-888d-8239ed6b0cdf</tokenCredentialId>
   <botUser>false</botUser>
-  <room></room>
+  <room>#jenkins</room>
 </jenkins.plugins.slack.SlackNotifier_-DescriptorImpl>
