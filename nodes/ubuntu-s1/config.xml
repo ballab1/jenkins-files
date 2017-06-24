@@ -1,19 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <slave>
-  <temporaryOfflineCause class="hudson.slaves.OfflineCause$UserCause">
-    <timestamp>1498305375442</timestamp>
-    <description>
-      <holder>
-        <owner>hudson.slaves.Messages</owner>
-      </holder>
-      <key>SlaveComputer.DisconnectedBy</key>
-      <args>
-        <string>bobb</string>
-        <string></string>
-      </args>
-    </description>
-    <userId>bobb</userId>
-  </temporaryOfflineCause>
   <name>ubuntu-s1</name>
   <description></description>
   <remoteFS>/home/jenkins</remoteFS>
