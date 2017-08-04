@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<flow-definition plugin="workflow-job@2.12.1">
+<flow-definition plugin="workflow-job@2.12.2">
   <actions/>
   <description></description>
   <keepDependencies>false</keepDependencies>
@@ -12,26 +12,65 @@
       </triggers>
     </org.jenkinsci.plugins.workflow.job.properties.PipelineTriggersJobProperty>
   </properties>
-  <definition class="org.jenkinsci.plugins.workflow.cps.CpsScmFlowDefinition" plugin="workflow-cps@2.36.1">
-    <scm class="hudson.plugins.git.GitSCM" plugin="git@3.3.2">
-      <configVersion>2</configVersion>
-      <userRemoteConfigs>
-        <hudson.plugins.git.UserRemoteConfig>
-          <url>https://github.com/ballab1/DBMS-backup.git</url>
-          <credentialsId>935a7b57-da74-45f7-9119-5a0529afb8ae</credentialsId>
-        </hudson.plugins.git.UserRemoteConfig>
-      </userRemoteConfigs>
-      <branches>
-        <hudson.plugins.git.BranchSpec>
-          <name>*/dev2</name>
-        </hudson.plugins.git.BranchSpec>
-      </branches>
-      <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
-      <submoduleCfg class="list"/>
-      <extensions/>
-    </scm>
-    <scriptPath>Jenkinsfile</scriptPath>
-    <lightweight>true</lightweight>
+  <definition class="org.jenkinsci.plugins.workflow.cps.CpsFlowDefinition" plugin="workflow-cps@2.38">
+    <script>def stepsForParallel = [:]
+
+def dbNames = [&apos;nconf&apos;, &apos;phpmyadmin&apos;, &apos;zen&apos;]
+for (int i=0; i&lt;dbNames.size(); ++i) {
+   def dbName = dbNames[i]
+   def opfile = &quot;${dbName}.sql&quot;
+   stepsForParallel[dbName] =  {
+          stage(&quot;${dbName}&quot;) {
+            steps {
+              sh &quot;sudo docker exec -i mysql mysqldump --user bobb --password=${PWRD}  ${dbName} &gt; ${dbName}.sql&quot;
+              archive opfile
+              stash includes: opfile, name: dbName
+            }
+          }
+        }
+}
+stepsForParallel[failFast] = true
+
+
+// return a closure because we do not want &apos;node(..){...}&apos; execcuted when this function is called
+def transformIntoStep(dbName) {
+  return {
+  }
+}
+
+
+pipeline {
+  agent { label &apos;ubuntu-s3&apos; }
+  options { timestamps() }
+  stages {
+    stage (&apos;Data Collection&apos;) {
+      // Actually run the steps in parallel - parallel takes a map as an argument, hence the above.
+        parallel nconf: {
+              sh &quot;sudo docker exec -i mysql mysqldump --user bobb --password=${PWRD} nconf &gt; nconf.sql&quot;
+              archive opfile
+              stash includes: opfile, name: nconf
+        }, phpmyadmin: {
+              sh &quot;sudo docker exec -i mysql mysqldump --user bobb --password=${PWRD} phpmyadmin &gt; phpmyadmin.sql&quot;
+              archive opfile
+              stash includes: opfile, name: phpmyadmin
+        }, zen: {
+              sh &quot;sudo docker exec -i mysql mysqldump --user bobb --password=${PWRD} zen &gt; zen.sql&quot;
+              archive opfile
+              stash includes: opfile, name: zen
+        }
+
+    stage (&apos;Update GIThub&apos;) {
+      steps {
+        checkout scm
+        unstash nconf
+        unstash phpmyadmin
+        unstash zen
+        archive includes:&apos;*.sql&apos;
+        sh &apos;git add -A; git comment -m &quot;mysql DB updates&quot;; git push&apos;
+      }
+    }
+}</script>
+    <sandbox>true</sandbox>
   </definition>
   <triggers/>
   <disabled>false</disabled>
