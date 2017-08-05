@@ -13,7 +13,8 @@
     </org.jenkinsci.plugins.workflow.job.properties.PipelineTriggersJobProperty>
   </properties>
   <definition class="org.jenkinsci.plugins.workflow.cps.CpsFlowDefinition" plugin="workflow-cps@2.38">
-    <script>node {
+    <script>agent { label &apos;ubuntu-s3&apos; }
+node {
    echo &apos;Hello World&apos;
 }</script>
     <sandbox>true</sandbox>
