@@ -25,6 +25,7 @@
 		sh &quot;sudo docker exec -i mysql mysqldump --user bobb --password=${PWRD} phpmyadmin &gt; phpmyadmin.sql&quot;
 		archive opfile
 		stash includes: opfile, name: phpmyadmin
+	}
 	step (&apos;zen&apos;) {
 		sh &quot;sudo docker exec -i mysql mysqldump --user bobb --password=${PWRD} zen &gt; zen.sql&quot;
 		archive opfile
