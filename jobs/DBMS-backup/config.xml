@@ -59,7 +59,7 @@
                 unstash &apos;phpmyadmin&apos;
                 unstash &apos;zen&apos;
                 archive includes:&apos;*.sql&apos;
-                int numberOfChanges = sh (returnStatus: true, returnStdout: true, script: &quot;git status --porcelain | grep -v -c &apos;^\$&apos;&quot;).trim()
+                int numberOfChanges = sh (returnStdout: true, script: &quot;git status --porcelain | grep -v -c &apos;^\$&apos; || true&quot;).trim()
                 echo &quot;numberOfChanges: ${numberOfChanges}&quot;
                 if (numberOfChanges &gt; 0) {
                     sh &apos;git add -A&apos;
