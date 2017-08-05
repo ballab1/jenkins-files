@@ -62,7 +62,7 @@
 		archive includes:&apos;*.sql&apos;
 		sh &apos;git add -A&apos;
 		sh &apos;git commit -m &quot;mysql DB updates&quot;&apos;
-		sh &apos;git push -vhttps://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/ballab1/DBMS-backup.git origin HEAD:dev2&apos;
+		sh &apos;git push -v https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/ballab1/DBMS-backup.git origin HEAD:dev2&apos;
 	     }
 	}
     }
