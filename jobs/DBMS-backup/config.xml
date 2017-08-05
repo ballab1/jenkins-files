@@ -60,12 +60,14 @@
                 unstash &apos;zen&apos;
                 archive includes:&apos;*.sql&apos;
                 int numberOfChanges = sh (returnStdout: true, script: &quot;git status --porcelain | grep -v -c &apos;^\$&apos;&quot;).trim()
+                echo &quot;numberOfChanges: ${numberOfChanges}&quot;
                 if (numberOfChanges &gt; 0) {
                     sh &apos;git add -A&apos;
                     sh &apos;git commit -m &quot;mysql DB updates&quot;&apos;
                     sh &apos;git push -v&apos;
                 }
                 else {
+                    echo &apos;Setting build to &quot;UNSTABLE&quot; to indicate no changes were detected.&apos;
                     manager.buildUnstable()
                 }
             }
