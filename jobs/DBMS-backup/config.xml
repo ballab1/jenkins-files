@@ -17,33 +17,33 @@
 pipeline {
    agent { label &apos;ubuntu-s3&apos; }
    options { timestamps() }
-//   stages {
-    step (&apos;Data Collection&apos;) {
-        // Actually run the steps in parallel - parallel takes a map as an argument, hence the above.
-        parallel nconf: {
-            sh &quot;sudo docker exec -i mysql mysqldump --user bobb --password=${PWRD} nconf &gt; nconf.sql&quot;
-            archive opfile
-            stash includes: opfile, name: nconf
-        }, phpmyadmin: {
-            sh &quot;sudo docker exec -i mysql mysqldump --user bobb --password=${PWRD} phpmyadmin &gt; phpmyadmin.sql&quot;
-            archive opfile
-            stash includes: opfile, name: phpmyadmin
-        }, zen: {
-            sh &quot;sudo docker exec -i mysql mysqldump --user bobb --password=${PWRD} zen &gt; zen.sql&quot;
-            archive opfile
-            stash includes: opfile, name: zen
+   stages {
+        stage (&apos;Data Collection&apos;) {
+            // Actually run the steps in parallel - parallel takes a map as an argument, hence the above.
+            parallel nconf: {
+                sh &quot;sudo docker exec -i mysql mysqldump --user bobb --password=${PWRD} nconf &gt; nconf.sql&quot;
+                archive opfile
+                stash includes: opfile, name: nconf
+            }, phpmyadmin: {
+                sh &quot;sudo docker exec -i mysql mysqldump --user bobb --password=${PWRD} phpmyadmin &gt; phpmyadmin.sql&quot;
+                archive opfile
+                stash includes: opfile, name: phpmyadmin
+            }, zen: {
+                sh &quot;sudo docker exec -i mysql mysqldump --user bobb --password=${PWRD} zen &gt; zen.sql&quot;
+                archive opfile
+                stash includes: opfile, name: zen
+            }
         }
-//        }
     }
     
-    step (&apos;Update GIThub&apos;) {
+        stage (&apos;Update GIThub&apos;) {
 //        steps {
-        checkout scm
-        unstash nconf
-        unstash phpmyadmin
-        unstash zen
-        archive includes:&apos;*.sql&apos;
-        sh &apos;git add -A; git comment -m &quot;mysql DB updates&quot;; git push&apos;
+            checkout scm
+            unstash nconf
+            unstash phpmyadmin
+            unstash zen
+            archive includes:&apos;*.sql&apos;
+            sh &apos;git add -A; git comment -m &quot;mysql DB updates&quot;; git push&apos;
 //        }
     }
 }</script>
