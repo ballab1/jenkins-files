@@ -16,28 +16,30 @@
     <script>pipeline {
 	agent { label &apos;ubuntu-s3&apos; }
 	options { timestamps() }
-	step (&apos;nconf&apos;) {
-		sh &quot;sudo docker exec -i mysql mysqldump --user bobb --password=${PWRD} nconf &gt; nconf.sql&quot;
-		archive opfile
-		stash includes: opfile, name: nconf
-	}
-	step (&apos;phpmyadmin&apos;) {
-		sh &quot;sudo docker exec -i mysql mysqldump --user bobb --password=${PWRD} phpmyadmin &gt; phpmyadmin.sql&quot;
-		archive opfile
-		stash includes: opfile, name: phpmyadmin
-	}
-	step (&apos;zen&apos;) {
-		sh &quot;sudo docker exec -i mysql mysqldump --user bobb --password=${PWRD} zen &gt; zen.sql&quot;
-		archive opfile
-		stash includes: opfile, name: zen
-	}
-	step (&apos;Update GIThub&apos;) {
-		checkout scm
-		unstash nconf
-		unstash phpmyadmin
-		unstash zen
-		archive includes:&apos;*.sql&apos;
-		sh &apos;git add -A; git comment -m &quot;mysql DB updates&quot;; git push&apos;
+	stages {
+		step (&apos;nconf&apos;) {
+			sh &quot;sudo docker exec -i mysql mysqldump --user bobb --password=${PWRD} nconf &gt; nconf.sql&quot;
+			archive opfile
+			stash includes: opfile, name: nconf
+		}
+		step (&apos;phpmyadmin&apos;) {
+			sh &quot;sudo docker exec -i mysql mysqldump --user bobb --password=${PWRD} phpmyadmin &gt; phpmyadmin.sql&quot;
+			archive opfile
+			stash includes: opfile, name: phpmyadmin
+		}
+		step (&apos;zen&apos;) {
+			sh &quot;sudo docker exec -i mysql mysqldump --user bobb --password=${PWRD} zen &gt; zen.sql&quot;
+			archive opfile
+			stash includes: opfile, name: zen
+		}
+		step (&apos;Update GIThub&apos;) {
+			checkout scm
+			unstash nconf
+			unstash phpmyadmin
+			unstash zen
+			archive includes:&apos;*.sql&apos;
+			sh &apos;git add -A; git comment -m &quot;mysql DB updates&quot;; git push&apos;
+		}
 	}
 }</script>
     <sandbox>true</sandbox>
