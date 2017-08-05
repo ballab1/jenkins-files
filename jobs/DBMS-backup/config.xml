@@ -17,22 +17,22 @@
 	agent { label &apos;ubuntu-s3&apos; }
 	options { timestamps() }
 	stages {
-		step (&apos;nconf&apos;) {
+		stage (&apos;nconf&apos;) {
 			sh &quot;sudo docker exec -i mysql mysqldump --user bobb --password=${PWRD} nconf &gt; nconf.sql&quot;
 			archive opfile
 			stash includes: opfile, name: nconf
 		}
-		step (&apos;phpmyadmin&apos;) {
+		stage (&apos;phpmyadmin&apos;) {
 			sh &quot;sudo docker exec -i mysql mysqldump --user bobb --password=${PWRD} phpmyadmin &gt; phpmyadmin.sql&quot;
 			archive opfile
 			stash includes: opfile, name: phpmyadmin
 		}
-		step (&apos;zen&apos;) {
+		stage (&apos;zen&apos;) {
 			sh &quot;sudo docker exec -i mysql mysqldump --user bobb --password=${PWRD} zen &gt; zen.sql&quot;
 			archive opfile
 			stash includes: opfile, name: zen
 		}
-		step (&apos;Update GIThub&apos;) {
+		stage (&apos;Update GIThub&apos;) {
 			checkout scm
 			unstash nconf
 			unstash phpmyadmin
