@@ -21,7 +21,7 @@
 					      usernameVariable: &apos;USER&apos;)
 			    ]) {
 		sh &quot;sudo docker exec -i mysql mysqldump --user ${USER} --password=${PWRD} nconf &gt; nconf.sql&quot;
-		stash includes: &apos;nconf.sql&apos;, name: nconf
+		stash includes: &apos;nconf.sql&apos;, name: &apos;nconf&apos;
 	     }
 	}
 	stage (&apos;phpmyadmin&apos;) {
@@ -30,7 +30,7 @@
 					      usernameVariable: &apos;USER&apos;)
 			    ]) {
 		sh &quot;sudo docker exec -i mysql mysqldump --user ${USER} --password=${PWRD} phpmyadmin &gt; phpmyadmin.sql&quot;
-		stash includes: &apos;phpmyadmin.sql&apos;, name: phpmyadmin
+		stash includes: &apos;phpmyadmin.sql&apos;, name: &apos;phpmyadmin&apos;
 	     }
 	}
 	stage (&apos;zen&apos;) {
@@ -39,7 +39,7 @@
 					      usernameVariable: &apos;USER&apos;)
 			    ]) {
 		sh &quot;sudo docker exec -i mysql mysqldump --user ${USER} --password=${PWRD} zen &gt; zen.sql&quot;
-		stash includes: &apos;zen.sql&apos;, name: zen
+		stash includes: &apos;zen.sql&apos;, name: &apos;zen&apos;
 	     }
 	}
 	stage (&apos;Update GIThub&apos;) {
@@ -51,9 +51,9 @@
 			  userRemoteConfigs: [[credentialsId: &apos;935a7b57-da74-45f7-9119-5a0529afb8ae&apos;, 
 					       url: &apos;https://github.com/ballab1/DBMS-backup.git&apos;]]
 			 ])
-		unstash nconf
-		unstash phpmyadmin
-		unstash zen
+		unstash &apos;nconf&apos;
+		unstash &apos;phpmyadmin&apos;
+		unstash &apos;zen&apos;
 		archive includes:&apos;*.sql&apos;
 		sh &apos;git add -A; git comment -m &quot;mysql DB updates&quot;; git push&apos;
 	}
