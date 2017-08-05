@@ -18,8 +18,8 @@ pipeline {
    agent { label &apos;ubuntu-s3&apos; }
    options { timestamps() }
    stages {
-        stage (&apos;Data Collection&apos;) {
-            step {
+        step {
+            stage (&apos;Data Collection&apos;) {
                 // Actually run the steps in parallel - parallel takes a map as an argument, hence the above.
                 parallel nconf: {
                     sh &quot;sudo docker exec -i mysql mysqldump --user bobb --password=${PWRD} nconf &gt; nconf.sql&quot;
@@ -38,15 +38,15 @@ pipeline {
         }
     }
     
+    step {
         stage (&apos;Update GIThub&apos;) {
-//        steps {
             checkout scm
             unstash nconf
             unstash phpmyadmin
             unstash zen
             archive includes:&apos;*.sql&apos;
             sh &apos;git add -A; git comment -m &quot;mysql DB updates&quot;; git push&apos;
-//        }
+        }
     }
 }</script>
     <sandbox>true</sandbox>
