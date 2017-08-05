@@ -55,7 +55,7 @@
 		unstash &apos;phpmyadmin&apos;
 		unstash &apos;zen&apos;
 		archive includes:&apos;*.sql&apos;
-		sh &apos;git add -A; git comment -m &quot;mysql DB updates&quot;; git push&apos;
+		sh &apos;git add -A; git commit -m &quot;mysql DB updates&quot;; git push&apos;
 	}
     }
 }
