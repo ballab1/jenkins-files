@@ -15,6 +15,7 @@
   <definition class="org.jenkinsci.plugins.workflow.cps.CpsFlowDefinition" plugin="workflow-cps@2.38">
     <script>timestamps {
     node(&apos;ubuntu-s3&apos;) {
+        cleanWs()
 	stage (&apos;nconf&apos;) {
 	    withCredentials([usernamePassword(credentialsId: &apos;1a69cdbb-be20-4bde-b30a-87ef9b2db969&apos;,
 					      passwordVariable: &apos;PWRD&apos;,
@@ -43,8 +44,12 @@
 	     }
 	}
 	stage (&apos;Update GIThub&apos;) {
+            withCredentials([usernamePassword(credentialsId: &apos;935a7b57-da74-45f7-9119-5a0529afb8ae&apos;,
+					      passwordVariable: &apos;GIT_PASSWORD&apos;,
+					      usernameVariable: &apos;GIT_USERNAME&apos;)
+			    ]) {
 		checkout([$class: &apos;GitSCM&apos;,
-			  branches: [[name: &apos;*/master&apos;]], 
+			  branches: [[name: &apos;*/dev2&apos;]], 
 			  doGenerateSubmoduleConfigurations: false, 	
 			  extensions: [], 
 			  submoduleCfg: [], 
@@ -55,7 +60,11 @@
 		unstash &apos;phpmyadmin&apos;
 		unstash &apos;zen&apos;
 		archive includes:&apos;*.sql&apos;
-		sh &apos;git add -A; git commit -m &quot;mysql DB updates&quot;; git push&apos;
+		sh &apos;git add -A&apos;
+		sh &apos;git commit -m &quot;mysql DB updates&quot;&apos;
+		sh &apos;git push&apos;
+                sh &apos;git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/ballab1/DBMS-backup.git&apos;
+	     }
 	}
     }
 }
