@@ -13,44 +13,31 @@
     </org.jenkinsci.plugins.workflow.job.properties.PipelineTriggersJobProperty>
   </properties>
   <definition class="org.jenkinsci.plugins.workflow.cps.CpsFlowDefinition" plugin="workflow-cps@2.38">
-    <script>def stepsForParallel = [:]
-
-def dbNames = [&apos;nconf&apos;, &apos;phpmyadmin&apos;, &apos;zen&apos;]
-for (int i=0; i&lt;dbNames.size(); ++i) {
-    def dbName = dbNames[i]
-    stepsForParallel[dbName] = transformIntoStep(dbName)
-}
-stepsForParallel[failFast] = true
-
-
-// return a closure because we do not want &apos;node(..){...}&apos; execcuted when this function is called
-def transformIntoStep(dbName) {
-    return {
-        step(&quot;${dbName}&quot;) {
-            sh &quot;sudo docker exec -i mysql mysqldump --user bobb --password=${PWRD}  ${dbName} &gt; ${dbName}.sql&quot;
-            archive &quot;${dbName}.sql&quot;
-            stash includes: &quot;${dbName}.sql&quot;, name: dbName
-        }
-    }
-}
-
-
-
-pipeline {
-    agent { label &apos;ubuntu-s3&apos; }
-    options { timestamps() }
-    // Actually run the steps in parallel - parallel takes a map as an argument,
-    // hence the above.
-    parallel stepsForParallel
-
-    step (&apos;Update GIThub&apos;) {
-        checkout scm
-        unstash dbNames[0]
-        unstash dbNames[1]
-        unstash dbNames[2]
-        archive includes:&apos;*.sql&apos;
-        sh &apos;git add -A; git comment -m &quot;mysql DB updates&quot;; git push&apos;
-    }
+    <script>pipeline {
+	agent { label &apos;ubuntu-s3&apos; }
+	options { timestamps() }
+	step (&apos;nconf&apos;) {
+		sh &quot;sudo docker exec -i mysql mysqldump --user bobb --password=${PWRD} nconf &gt; nconf.sql&quot;
+		archive opfile
+		stash includes: opfile, name: nconf
+	}
+	step (&apos;phpmyadmin&apos;) {
+		sh &quot;sudo docker exec -i mysql mysqldump --user bobb --password=${PWRD} phpmyadmin &gt; phpmyadmin.sql&quot;
+		archive opfile
+		stash includes: opfile, name: phpmyadmin
+	step (&apos;zen&apos;) {
+		sh &quot;sudo docker exec -i mysql mysqldump --user bobb --password=${PWRD} zen &gt; zen.sql&quot;
+		archive opfile
+		stash includes: opfile, name: zen
+	}
+	step (&apos;Update GIThub&apos;) {
+		checkout scm
+		unstash nconf
+		unstash phpmyadmin
+		unstash zen
+		archive includes:&apos;*.sql&apos;
+		sh &apos;git add -A; git comment -m &quot;mysql DB updates&quot;; git push&apos;
+	}
 }</script>
     <sandbox>true</sandbox>
   </definition>
