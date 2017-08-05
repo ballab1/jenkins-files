@@ -17,65 +17,26 @@
       </triggers>
     </org.jenkinsci.plugins.workflow.job.properties.PipelineTriggersJobProperty>
   </properties>
-  <definition class="org.jenkinsci.plugins.workflow.cps.CpsFlowDefinition" plugin="workflow-cps@2.38">
-    <script>timestamps {
-    node(&apos;ubuntu-s3&apos;) {
-        cleanWs()
-        stage (&apos;nconf&apos;) {
-            withCredentials([usernamePassword(credentialsId: &apos;1a69cdbb-be20-4bde-b30a-87ef9b2db969&apos;,
-                              passwordVariable: &apos;PWRD&apos;,
-                              usernameVariable: &apos;USER&apos;)
-                ]) {
-                sh &quot;sudo docker exec -i mysql mysqldump --user ${USER} --password=${PWRD} nconf | grep -v &apos;^-- Dump completed on&apos; &gt; nconf.sql&quot;
-                stash includes: &apos;nconf.sql&apos;, name: &apos;nconf&apos;
-            }
-        }
-        stage (&apos;phpmyadmin&apos;) {
-            withCredentials([usernamePassword(credentialsId: &apos;1a69cdbb-be20-4bde-b30a-87ef9b2db969&apos;,
-                              passwordVariable: &apos;PWRD&apos;,
-                              usernameVariable: &apos;USER&apos;)
-                ]) {
-                sh &quot;sudo docker exec -i mysql mysqldump --user ${USER} --password=${PWRD} phpmyadmin | grep -v &apos;^-- Dump completed on&apos; &gt; phpmyadmin.sql&quot;
-                stash includes: &apos;phpmyadmin.sql&apos;, name: &apos;phpmyadmin&apos;
-            }
-        }
-        stage (&apos;zen&apos;) {
-            withCredentials([usernamePassword(credentialsId: &apos;1a69cdbb-be20-4bde-b30a-87ef9b2db969&apos;,
-                              passwordVariable: &apos;PWRD&apos;,
-                              usernameVariable: &apos;USER&apos;)
-                ]) {
-                sh &quot;sudo docker exec -i mysql mysqldump --user ${USER} --password=${PWRD} zen | grep -v &apos;^-- Dump completed on&apos; &gt; zen.sql&quot;
-                stash includes: &apos;zen.sql&apos;, name: &apos;zen&apos;
-            }
-        }
-        stage (&apos;Update GIThub&apos;) {
-            withCredentials([usernamePassword(credentialsId: &apos;935a7b57-da74-45f7-9119-5a0529afb8ae&apos;,
-                              passwordVariable: &apos;GIT_PASSWORD&apos;,
-                              usernameVariable: &apos;GIT_USERNAME&apos;)
-                ]) {
-                sh &apos;rm -rf *&apos;
-                sh &apos;git clone -v -b master https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/ballab1/DBMS-backup.git .&apos;
-                unstash &apos;nconf&apos;
-                unstash &apos;phpmyadmin&apos;
-                unstash &apos;zen&apos;
-                archive includes:&apos;*.sql&apos;
-                def porcelainStatus = sh (returnStdout: true, script: &apos;git status --porcelain&apos;).split(&quot;\\r?\\n&quot;)
-
-                int numberOfChanges = porcelainStatus.findAll{ it =~ /[^\\s]+/ }.size()
-                if (numberOfChanges &gt; 0) {
-                    sh &apos;git add -A&apos;
-                    sh &apos;git commit -m &quot;mysql DB updates&quot;&apos;
-                    sh &apos;git push -v&apos;
-                    
-                    echo &apos;Setting build to &quot;UNSTABLE&quot; to indicate changes were detected.&apos;
-                    manager.buildUnstable()
-                }
-            }
-        }
-    }
-}
-</script>
-    <sandbox>true</sandbox>
+  <definition class="org.jenkinsci.plugins.workflow.cps.CpsScmFlowDefinition" plugin="workflow-cps@2.38">
+    <scm class="hudson.plugins.git.GitSCM" plugin="git@3.5.0">
+      <configVersion>2</configVersion>
+      <userRemoteConfigs>
+        <hudson.plugins.git.UserRemoteConfig>
+          <url>https://github.com/ballab1/DBMS-backup.git</url>
+          <credentialsId>935a7b57-da74-45f7-9119-5a0529afb8ae</credentialsId>
+        </hudson.plugins.git.UserRemoteConfig>
+      </userRemoteConfigs>
+      <branches>
+        <hudson.plugins.git.BranchSpec>
+          <name>*/master</name>
+        </hudson.plugins.git.BranchSpec>
+      </branches>
+      <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
+      <submoduleCfg class="list"/>
+      <extensions/>
+    </scm>
+    <scriptPath>Jenkinsfile</scriptPath>
+    <lightweight>true</lightweight>
   </definition>
   <triggers/>
   <disabled>false</disabled>
