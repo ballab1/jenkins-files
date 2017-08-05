@@ -59,12 +59,9 @@
                 unstash &apos;phpmyadmin&apos;
                 unstash &apos;zen&apos;
                 archive includes:&apos;*.sql&apos;
-                def porcelainStatus = sh (returnStdout: true, script: &apos;git status --porcelain&apos;)
+                def porcelainStatus = sh (returnStdout: true, script: &apos;git status --porcelain&apos;).split(&quot;\\r?\\n&quot;)
 
-                int numberOfChanges = porcelainStatus.readLines().findAll{ it =~ /[^\\s]+/ }.size()
-                echo &quot;porcelainStatus: ${porcelainStatus}&quot;
-                echo &quot;numberOfChanges: ${numberOfChanges}&quot;
-
+                int numberOfChanges = porcelainStatus.findAll{ it =~ /[^\\s]+/ }.size()
                 if (numberOfChanges &gt; 0) {
                     sh &apos;git add -A&apos;
                     sh &apos;git commit -m &quot;mysql DB updates&quot;&apos;
