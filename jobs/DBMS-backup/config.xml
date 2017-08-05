@@ -14,9 +14,10 @@
   </properties>
   <definition class="org.jenkinsci.plugins.workflow.cps.CpsFlowDefinition" plugin="workflow-cps@2.38">
     <script>node(&apos;ubuntu-s3&apos;) {
-   echo &apos;Hello World&apos;
-}
-</script>
+    stage {
+        echo &apos;Hello World&apos;
+    }
+}</script>
     <sandbox>true</sandbox>
   </definition>
   <triggers/>
