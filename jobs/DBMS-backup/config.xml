@@ -48,7 +48,8 @@
 					      passwordVariable: &apos;GIT_PASSWORD&apos;,
 					      usernameVariable: &apos;GIT_USERNAME&apos;)
 			    ]) {
-		sh &apos;git clone -v -b dev2 https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/ballab1/DBMS-backup.git&apos;
+                sh &apos;rm -rf *&apos;
+		sh &apos;git clone -v -b dev2 https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/ballab1/DBMS-backup.git .&apos;
 		unstash &apos;nconf&apos;
 		unstash &apos;phpmyadmin&apos;
 		unstash &apos;zen&apos;
