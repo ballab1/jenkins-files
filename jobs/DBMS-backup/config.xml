@@ -19,19 +19,21 @@ pipeline {
    options { timestamps() }
    stages {
         stage (&apos;Data Collection&apos;) {
-            // Actually run the steps in parallel - parallel takes a map as an argument, hence the above.
-            parallel nconf: {
-                sh &quot;sudo docker exec -i mysql mysqldump --user bobb --password=${PWRD} nconf &gt; nconf.sql&quot;
-                archive opfile
-                stash includes: opfile, name: nconf
-            }, phpmyadmin: {
-                sh &quot;sudo docker exec -i mysql mysqldump --user bobb --password=${PWRD} phpmyadmin &gt; phpmyadmin.sql&quot;
-                archive opfile
-                stash includes: opfile, name: phpmyadmin
-            }, zen: {
-                sh &quot;sudo docker exec -i mysql mysqldump --user bobb --password=${PWRD} zen &gt; zen.sql&quot;
-                archive opfile
-                stash includes: opfile, name: zen
+            step {
+                // Actually run the steps in parallel - parallel takes a map as an argument, hence the above.
+                parallel nconf: {
+                    sh &quot;sudo docker exec -i mysql mysqldump --user bobb --password=${PWRD} nconf &gt; nconf.sql&quot;
+                    archive opfile
+                    stash includes: opfile, name: nconf
+                }, phpmyadmin: {
+                    sh &quot;sudo docker exec -i mysql mysqldump --user bobb --password=${PWRD} phpmyadmin &gt; phpmyadmin.sql&quot;
+                    archive opfile
+                    stash includes: opfile, name: phpmyadmin
+                }, zen: {
+                    sh &quot;sudo docker exec -i mysql mysqldump --user bobb --password=${PWRD} zen &gt; zen.sql&quot;
+                    archive opfile
+                    stash includes: opfile, name: zen
+                }
             }
         }
     }
