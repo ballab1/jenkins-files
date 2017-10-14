@@ -21,10 +21,10 @@
   <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
   <triggers/>
   <concurrentBuild>false</concurrentBuild>
-  <customWorkspace>/home/bobb/prod/nagios</customWorkspace>
+  <customWorkspace>/home/bobb/prod</customWorkspace>
   <builders>
     <hudson.tasks.Shell>
-      <command>./build.sh</command>
+      <command>nagios/build.sh</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers/>
