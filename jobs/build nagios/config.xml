@@ -24,7 +24,8 @@
   <customWorkspace>/home/bobb/prod</customWorkspace>
   <builders>
     <hudson.tasks.Shell>
-      <command>nagios/build.sh</command>
+      <command>rm -rf opt/*
+nagios/build.sh</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers/>
