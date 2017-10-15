@@ -29,9 +29,9 @@
   </builders>
   <publishers>
     <hudson.tasks.ArtifactArchiver>
-      <artifacts>nagios.tgz</artifacts>
+      <artifacts>**/nagios.tgz</artifacts>
       <allowEmptyArchive>false</allowEmptyArchive>
-      <onlyIfSuccessful>false</onlyIfSuccessful>
+      <onlyIfSuccessful>true</onlyIfSuccessful>
       <fingerprint>false</fingerprint>
       <defaultExcludes>true</defaultExcludes>
       <caseSensitive>true</caseSensitive>
