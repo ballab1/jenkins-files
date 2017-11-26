@@ -24,8 +24,7 @@
   <customWorkspace>/home/bobb/prod</customWorkspace>
   <builders>
     <hudson.tasks.Shell>
-      <command>cat /home/bobb/prod/nagios/x/etc/sudoers.d/myOverrides
-cd nagios
+      <command>cd nagios
 docker build .</command>
     </hudson.tasks.Shell>
   </builders>
