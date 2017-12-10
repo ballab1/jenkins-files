@@ -24,8 +24,7 @@
   <customWorkspace>/home/bobb/prod</customWorkspace>
   <builders>
     <hudson.tasks.Shell>
-      <command>cd nagios
-docker build .</command>
+      <command>rebuild.sh</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers/>
