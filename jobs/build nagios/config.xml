@@ -30,9 +30,6 @@
   </builders>
   <publishers/>
   <buildWrappers>
-    <hudson.plugins.timestamper.TimestamperBuildWrapper plugin="timestamper@1.8.8"/>
-    <hudson.plugins.ansicolor.AnsiColorBuildWrapper plugin="ansicolor@0.5.2">
-      <colorMapName>gnome-terminal</colorMapName>
-    </hudson.plugins.ansicolor.AnsiColorBuildWrapper>
+    <hudson.plugins.timestamper.TimestamperBuildWrapper plugin="timestamper@1.8.9"/>
   </buildWrappers>
 </project>
