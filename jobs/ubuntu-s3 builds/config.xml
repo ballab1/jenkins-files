@@ -55,7 +55,7 @@
 [[ $(docker images -f &quot;dangling=true&quot; -q) ]] &amp;&amp; \
         docker rmi $(docker images -f &quot;dangling=true&quot; -q)
 
-docker-compose -f &quot;/home/bobb/$CONTAINER_DIR/docker-compose.yml&quot;</command>
+docker-compose -f &quot;/home/bobb/$CONTAINER_DIR/docker-compose.yml&quot; build</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers/>
