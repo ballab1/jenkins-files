@@ -19,18 +19,18 @@
           <description></description>
           <choices class="java.util.Arrays$ArrayList">
             <a class="string-array">
-              <string>/home/bobb/prod/alpinefull</string>
-              <string>/home/bobb/prod/hubot</string>
-              <string>/home/bobb/prod/jenkins</string>
-              <string>/home/bobb/prod/mysql</string>
-              <string>/home/bobb/prod/nagios</string>
-              <string>/home/bobb/prod/nginx</string>
-              <string>/home/bobb/prod/phpadmin</string>
-              <string>/home/bobb/prod/zen</string>
-              <string>/home/bobb/dev/helloworld</string>
-              <string>/home/bobb/dev/hubot</string>
-              <string>/home/bobb/dev/node</string>
-              <string>/home/bobb/dev/nodervisor</string>
+              <string>prod/alpinefull</string>
+              <string>prod/hubot</string>
+              <string>prod/jenkins</string>
+              <string>prod/mysql</string>
+              <string>prod/nagios</string>
+              <string>prod/nginx</string>
+              <string>prod/phpadmin</string>
+              <string>prod/zen</string>
+              <string>helloworld</string>
+              <string>dev/hubot</string>
+              <string>dev/node</string>
+              <string>dev/nodervisor</string>
             </a>
           </choices>
         </hudson.model.ChoiceParameterDefinition>
@@ -55,7 +55,7 @@
 [[ $(docker images -f &quot;dangling=true&quot; -q) ]] &amp;&amp; \
         docker rmi $(docker images -f &quot;dangling=true&quot; -q)
 
-docker-compose -f &quot;$CONTAINER_DIR&quot;</command>
+docker-compose -f &quot;/home/bobb/$CONTAINER_DIR&quot;</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers/>
