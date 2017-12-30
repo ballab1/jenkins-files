@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description></description>
+  <keepDependencies>false</keepDependencies>
+  <properties>
+    <jenkins.model.BuildDiscarderProperty>
+      <strategy class="hudson.tasks.LogRotator">
+        <daysToKeep>5</daysToKeep>
+        <numToKeep>5</numToKeep>
+        <artifactDaysToKeep>-1</artifactDaysToKeep>
+        <artifactNumToKeep>-1</artifactNumToKeep>
+      </strategy>
+    </jenkins.model.BuildDiscarderProperty>
+    <hudson.model.ParametersDefinitionProperty>
+      <parameterDefinitions>
+        <hudson.model.ChoiceParameterDefinition>
+          <name>CONTAINER_DIR</name>
+          <description></description>
+          <choices class="java.util.Arrays$ArrayList">
+            <a class="string-array">
+              <string>/home/bobb/prod/alpinefull</string>
+              <string>/home/bobb/prod/hubot</string>
+              <string>/home/bobb/prod/jenkins</string>
+              <string>/home/bobb/prod/mysql</string>
+              <string>/home/bobb/prod/nagios</string>
+              <string>/home/bobb/prod/nginx</string>
+              <string>/home/bobb/prod/phpadmin</string>
+              <string>/home/bobb/prod/zen</string>
+              <string>/home/bobb/dev/helloworld</string>
+              <string>/home/bobb/dev/hubot</string>
+              <string>/home/bobb/dev/node</string>
+              <string>/home/bobb/dev/nodervisor</string>
+            </a>
+          </choices>
+        </hudson.model.ChoiceParameterDefinition>
+      </parameterDefinitions>
+    </hudson.model.ParametersDefinitionProperty>
+  </properties>
+  <scm class="hudson.scm.NullSCM"/>
+  <assignedNode>ubuntu-s3</assignedNode>
+  <canRoam>false</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers/>
+  <concurrentBuild>false</concurrentBuild>
+  <customWorkspace>/home/bobb/prod</customWorkspace>
+  <builders>
+    <hudson.tasks.Shell>
+      <command>[[ $(docker ps -a --filter &quot;name=_&quot; --format &quot;{{.Names}}&quot;) ]] &amp;&amp; \
+        docker rm -f $(docker ps -a --filter &quot;name=_&quot; --format &quot;{{.Names}}&quot;)
+[[ $(docker ps -a --filter &quot;status=exited&quot; --filter &quot;status=dead&quot; --format &quot;{{.Names}}&quot;) ]] &amp;&amp; \
+        docker rm $(docker ps -a --filter &quot;status=exited&quot; --filter &quot;status=dead&quot; --format &quot;{{.Names}}&quot;)
+[[ $(docker images -f &quot;dangling=true&quot; -q) ]] &amp;&amp; \
+        docker rmi $(docker images -f &quot;dangling=true&quot; -q)
+
+docker-compose -f &quot;$CONTAINER_DIR&quot;</command>
+    </hudson.tasks.Shell>
+  </builders>
+  <publishers/>
+  <buildWrappers>
+    <hudson.plugins.timestamper.TimestamperBuildWrapper plugin="timestamper@1.8.9"/>
+    <hudson.plugins.ansicolor.AnsiColorBuildWrapper plugin="ansicolor@0.5.2">
+      <colorMapName>gnome-terminal</colorMapName>
+    </hudson.plugins.ansicolor.AnsiColorBuildWrapper>
+    <org.jenkinsci.plugins.credentialsbinding.impl.SecretBuildWrapper plugin="credentials-binding@1.13">
+      <bindings class="empty-list"/>
+    </org.jenkinsci.plugins.credentialsbinding.impl.SecretBuildWrapper>
+  </buildWrappers>
+</project>
