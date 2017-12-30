@@ -27,7 +27,7 @@
               <string>prod/nginx</string>
               <string>prod/phpadmin</string>
               <string>prod/zen</string>
-              <string>helloworld</string>
+              <string>dev/helloworld</string>
               <string>dev/hubot</string>
               <string>dev/node</string>
               <string>dev/nodervisor</string>
