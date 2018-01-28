@@ -25,17 +25,6 @@
   <clouds>
     <com.nirima.jenkins.plugins.docker.DockerCloud plugin="docker-plugin@1.1.2">
       <name>docker</name>
-      <dockerApi>
-        <dockerHost plugin="docker-commons@1.11">
-          <uri>unix:/var/run/docker.sock</uri>
-        </dockerHost>
-        <connectTimeout>60</connectTimeout>
-      </dockerApi>
-      <containerCap>100</containerCap>
-      <exposeDockerHost>false</exposeDockerHost>
-    </com.nirima.jenkins.plugins.docker.DockerCloud>
-    <com.nirima.jenkins.plugins.docker.DockerCloud plugin="docker-plugin@1.1.2">
-      <name>mydocker</name>
       <templates>
         <com.nirima.jenkins.plugins.docker.DockerTemplate>
           <configVersion>2</configVersion>
@@ -51,7 +40,7 @@
           </retentionStrategy>
           <dockerTemplateBase>
             <image>jenkinsci/slave:3.16-1-alpine</image>
-            <pullCredentialsId>935a7b57-da74-45f7-9119-5a0529afb8ae</pullCredentialsId>
+            <pullCredentialsId></pullCredentialsId>
             <dockerCommand></dockerCommand>
             <hostname></hostname>
             <dnsHosts/>
@@ -65,14 +54,14 @@
             <tty>false</tty>
             <extraHosts/>
           </dockerTemplateBase>
-          <removeVolumes>true</removeVolumes>
+          <removeVolumes>false</removeVolumes>
           <pullStrategy>PULL_LATEST</pullStrategy>
           <nodeProperties class="empty-list"/>
         </com.nirima.jenkins.plugins.docker.DockerTemplate>
       </templates>
       <dockerApi>
         <dockerHost plugin="docker-commons@1.11">
-          <uri>unix:///var/run/docker.sock</uri>
+          <uri>unix:/var/run/docker.sock</uri>
         </dockerHost>
         <connectTimeout>60</connectTimeout>
       </dockerApi>
