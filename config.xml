@@ -65,7 +65,7 @@
         </dockerHost>
         <connectTimeout>60</connectTimeout>
       </dockerApi>
-      <containerCap>100</containerCap>
+      <containerCap>20</containerCap>
       <exposeDockerHost>false</exposeDockerHost>
     </com.nirima.jenkins.plugins.docker.DockerCloud>
   </clouds>
