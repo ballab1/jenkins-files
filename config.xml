@@ -56,7 +56,7 @@
             <bindAllPorts>false</bindAllPorts>
             <privileged>false</privileged>
             <tty>false</tty>
-            <extraHosts/>
+            <extraHosts class="empty-list"/>
           </dockerTemplateBase>
           <removeVolumes>false</removeVolumes>
           <pullStrategy>PULL_LATEST</pullStrategy>
