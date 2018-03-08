@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<matrix-project plugin="matrix-project@1.11">
+<matrix-project plugin="matrix-project@1.12">
   <actions/>
   <description></description>
   <keepDependencies>false</keepDependencies>
@@ -54,6 +54,22 @@
       <defaultExcludes>true</defaultExcludes>
       <caseSensitive>true</caseSensitive>
     </hudson.tasks.ArtifactArchiver>
+    <ie.googlielmo.publishtokafka.PublishToKafkaBuilder plugin="publishtokafka@1.0">
+      <bootstrapServers>broker:9092,10.1.3.11:9092</bootstrapServers>
+      <metadataBrokerList>broker:9092,10.1.3.11:9092</metadataBrokerList>
+      <acks>1</acks>
+      <topic>jenkins_data</topic>
+      <excludePlugin>false</excludePlugin>
+      <changeBuildStatus>false</changeBuildStatus>
+      <retries>0</retries>
+      <clientId></clientId>
+      <connectionsMaxIdle>540000</connectionsMaxIdle>
+      <requestTimeout>30000</requestTimeout>
+      <timeout>30000</timeout>
+      <metadataFetchTimeout>60000</metadataFetchTimeout>
+      <metadataMaxAge>300000</metadataMaxAge>
+      <fetchUnitTestsResults>false</fetchUnitTestsResults>
+    </ie.googlielmo.publishtokafka.PublishToKafkaBuilder>
   </publishers>
   <buildWrappers>
     <hudson.plugins.ws__cleanup.PreBuildCleanup plugin="ws-cleanup@0.34">
@@ -61,8 +77,8 @@
       <cleanupParameter></cleanupParameter>
       <externalDelete></externalDelete>
     </hudson.plugins.ws__cleanup.PreBuildCleanup>
-    <hudson.plugins.timestamper.TimestamperBuildWrapper plugin="timestamper@1.8.8"/>
-    <EnvInjectPasswordWrapper plugin="envinject@2.1.3">
+    <hudson.plugins.timestamper.TimestamperBuildWrapper plugin="timestamper@1.8.9"/>
+    <EnvInjectPasswordWrapper plugin="envinject@2.1.5">
       <injectGlobalPasswords>false</injectGlobalPasswords>
       <maskPasswordParameters>true</maskPasswordParameters>
       <passwordEntries>
