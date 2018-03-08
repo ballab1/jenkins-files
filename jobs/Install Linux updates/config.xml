@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<matrix-project plugin="matrix-project@1.10">
+<matrix-project plugin="matrix-project@1.12">
   <actions/>
   <description></description>
   <keepDependencies>false</keepDependencies>
@@ -13,7 +13,7 @@
       </strategy>
     </jenkins.model.BuildDiscarderProperty>
   </properties>
-  <scm class="hudson.plugins.git.GitSCM" plugin="git@3.3.0">
+  <scm class="hudson.plugins.git.GitSCM" plugin="git@3.8.0">
     <configVersion>2</configVersion>
     <userRemoteConfigs>
       <hudson.plugins.git.UserRemoteConfig>
@@ -63,9 +63,25 @@
       <parsingRulesPath>parsers/system_restart_required.rules</parsingRulesPath>
       <useProjectRule>false</useProjectRule>
     </hudson.plugins.logparser.LogParserPublisher>
+    <ie.googlielmo.publishtokafka.PublishToKafkaBuilder plugin="publishtokafka@1.0">
+      <bootstrapServers>broker:9092,10.1.3.11:9092</bootstrapServers>
+      <metadataBrokerList>broker:9092,10.1.3.11:9092</metadataBrokerList>
+      <acks>1</acks>
+      <topic>jenkins_data</topic>
+      <excludePlugin>false</excludePlugin>
+      <changeBuildStatus>false</changeBuildStatus>
+      <retries>0</retries>
+      <clientId></clientId>
+      <connectionsMaxIdle>540000</connectionsMaxIdle>
+      <requestTimeout>30000</requestTimeout>
+      <timeout>30000</timeout>
+      <metadataFetchTimeout>60000</metadataFetchTimeout>
+      <metadataMaxAge>300000</metadataMaxAge>
+      <fetchUnitTestsResults>false</fetchUnitTestsResults>
+    </ie.googlielmo.publishtokafka.PublishToKafkaBuilder>
   </publishers>
   <buildWrappers>
-    <hudson.plugins.timestamper.TimestamperBuildWrapper plugin="timestamper@1.8.8"/>
+    <hudson.plugins.timestamper.TimestamperBuildWrapper plugin="timestamper@1.8.9"/>
   </buildWrappers>
   <executionStrategy class="hudson.matrix.DefaultMatrixExecutionStrategyImpl">
     <runSequentially>false</runSequentially>
