@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<io.jenkins.docker.DockerTransientNode plugin="docker-plugin@1.1.3">
+  <name>docker-3454bee0e6489</name>
+  <description>Docker Agent [jenkinsci/slave:3.16-1-alpine on unix:/var/run/docker.sock]</description>
+  <remoteFS>/home/jenkins</remoteFS>
+  <numExecutors>1</numExecutors>
+  <mode>NORMAL</mode>
+  <retentionStrategy class="com.nirima.jenkins.plugins.docker.strategy.DockerOnceRetentionStrategy">
+    <timeout>10</timeout>
+  </retentionStrategy>
+  <launcher class="io.jenkins.docker.connector.DockerComputerConnector$1">
+    <launcher class="io.jenkins.docker.connector.DockerComputerAttachConnector$DockerAttachLauncher">
+      <api>
+        <dockerHost plugin="docker-commons@1.11">
+          <uri>unix:/var/run/docker.sock</uri>
+        </dockerHost>
+        <connectTimeout>60</connectTimeout>
+        <readTimeout>0</readTimeout>
+      </api>
+      <containerId>86da93829fd8d80abecce6a9d24f4f131e8f1ec2b4c31d278f73d01571a0f4ac</containerId>
+      <user></user>
+      <remoteFs>/home/jenkins</remoteFs>
+    </launcher>
+    <val_-api reference="../launcher/api"/>
+    <val_-containerId>86da93829fd8d80abecce6a9d24f4f131e8f1ec2b4c31d278f73d01571a0f4ac</val_-containerId>
+    <outer-class class="io.jenkins.docker.connector.DockerComputerAttachConnector">
+      <user></user>
+    </outer-class>
+  </launcher>
+  <label>docker-slave</label>
+  <nodeProperties/>
+  <containerId>86da93829fd8d80abecce6a9d24f4f131e8f1ec2b4c31d278f73d01571a0f4ac</containerId>
+  <containerName>3454bee0e6489</containerName>
+  <dockerAPI reference="../launcher/launcher/api"/>
+  <removeVolumes>false</removeVolumes>
+  <cloudId>docker</cloudId>
+</io.jenkins.docker.DockerTransientNode>
