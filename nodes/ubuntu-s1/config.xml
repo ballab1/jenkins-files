@@ -1,18 +1,29 @@
 <?xml version='1.1' encoding='UTF-8'?>
 <slave>
-  <temporaryOfflineCause class="hudson.slaves.OfflineCause$UserCause">
-    <timestamp>1522887630368</timestamp>
-    <description>
-      <holder>
-        <owner>hudson.slaves.Messages</owner>
-      </holder>
-      <key>SlaveComputer.DisconnectedBy</key>
-      <args>
-        <string>bobb</string>
-        <string></string>
-      </args>
-    </description>
-    <userId>bobb</userId>
+  <temporaryOfflineCause class="hudson.slaves.OfflineCause$ChannelTermination">
+    <timestamp>1522970058297</timestamp>
+    <cause class="java.io.IOException">
+      <detailMessage>Unexpected termination of the channel</detailMessage>
+      <cause class="java.io.EOFException">
+        <stackTrace>
+          <trace>java.io.ObjectInputStream$PeekInputStream.readFully(ObjectInputStream.java:2638)</trace>
+          <trace>java.io.ObjectInputStream$BlockDataInputStream.readShort(ObjectInputStream.java:3113)</trace>
+          <trace>java.io.ObjectInputStream.readStreamHeader(ObjectInputStream.java:853)</trace>
+          <trace>java.io.ObjectInputStream.&lt;init&gt;(ObjectInputStream.java:349)</trace>
+          <trace>hudson.remoting.ObjectInputStreamEx.&lt;init&gt;(ObjectInputStreamEx.java:48)</trace>
+          <trace>hudson.remoting.AbstractSynchronousByteArrayCommandTransport.read(AbstractSynchronousByteArrayCommandTransport.java:35)</trace>
+          <trace>hudson.remoting.SynchronousCommandTransport$ReaderThread.run(SynchronousCommandTransport.java:63)</trace>
+        </stackTrace>
+        <suppressedExceptions class="java.util.Collections$UnmodifiableRandomAccessList" resolves-to="java.util.Collections$UnmodifiableList">
+          <c class="list"/>
+          <list reference="../c"/>
+        </suppressedExceptions>
+      </cause>
+      <stackTrace>
+        <trace>hudson.remoting.SynchronousCommandTransport$ReaderThread.run(SynchronousCommandTransport.java:77)</trace>
+      </stackTrace>
+      <suppressedExceptions class="java.util.Collections$UnmodifiableRandomAccessList" reference="../cause/suppressedExceptions"/>
+    </cause>
   </temporaryOfflineCause>
   <name>ubuntu-s1</name>
   <description></description>
