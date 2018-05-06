@@ -32,6 +32,7 @@
         <string>zen</string>
         <string>phpmyadmin</string>
         <string>grafana</string>
+        <string>kafka_data</string>
       </values>
     </hudson.matrix.TextAxis>
     <hudson.matrix.LabelAxis>
