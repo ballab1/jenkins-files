@@ -59,6 +59,9 @@
           <pullStrategy>PULL_LATEST</pullStrategy>
           <pullTimeout>0</pullTimeout>
           <nodeProperties class="empty-list"/>
+          <disabled>
+            <disabledByChoice>false</disabledByChoice>
+          </disabled>
         </com.nirima.jenkins.plugins.docker.DockerTemplate>
       </templates>
       <dockerApi>
