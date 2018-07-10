@@ -68,7 +68,16 @@
     </branches>
     <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
     <submoduleCfg class="list"/>
-    <extensions/>
+    <extensions>
+      <hudson.plugins.git.extensions.impl.SubmoduleOption>
+        <disableSubmodules>false</disableSubmodules>
+        <recursiveSubmodules>true</recursiveSubmodules>
+        <trackingSubmodules>true</trackingSubmodules>
+        <reference></reference>
+        <parentCredentials>true</parentCredentials>
+      </hudson.plugins.git.extensions.impl.SubmoduleOption>
+      <hudson.plugins.git.extensions.impl.GitLFSPull/>
+    </extensions>
   </scm>
   <assignedNode>ubuntu-s4</assignedNode>
   <canRoam>false</canRoam>
