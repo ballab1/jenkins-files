@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version='1.1' encoding='UTF-8'?>
 <project>
   <actions/>
   <description></description>
@@ -12,6 +12,9 @@
         <artifactNumToKeep>-1</artifactNumToKeep>
       </strategy>
     </jenkins.model.BuildDiscarderProperty>
+    <org.bstick12.jenkinsci.plugins.leastload.LeastLoadDisabledProperty plugin="leastload@2.0.1">
+      <leastLoadDisabled>false</leastLoadDisabled>
+    </org.bstick12.jenkinsci.plugins.leastload.LeastLoadDisabledProperty>
     <hudson.model.ParametersDefinitionProperty>
       <parameterDefinitions>
         <hudson.model.ChoiceParameterDefinition>
@@ -19,26 +22,55 @@
           <description></description>
           <choices class="java.util.Arrays$ArrayList">
             <a class="string-array">
-              <string>prod/alpinefull</string>
-              <string>prod/hubot</string>
-              <string>prod/jenkins</string>
-              <string>prod/mysql</string>
-              <string>prod/nagios</string>
-              <string>prod/nginx</string>
-              <string>prod/phpadmin</string>
-              <string>prod/zen</string>
-              <string>dev/helloworld</string>
-              <string>dev/hubot</string>
-              <string>dev/node</string>
-              <string>dev/nodervisor</string>
+              <string>alpinefull</string>
+              <string>files-kafka</string>
+              <string>files-librd</string>
+              <string>gradle</string>
+              <string>hubot</string>
+              <string>jenkins</string>
+              <string>kafka-broker</string>
+              <string>kafka-manager</string>
+              <string>kafka-zookeeper</string>
+              <string>mysql</string>
+              <string>nagios</string>
+              <string>nginx</string>
+              <string>nginx_base</string>
+              <string>openjdk8</string>
+              <string>openjre8</string>
+              <string>perl-carton</string>
+              <string>perl.5-26-2</string>
+              <string>php5</string>
+              <string>php7</string>
+              <string>phpadmin</string>
+              <string>postgres</string>
+              <string>supervisord</string>
+              <string>supervisord-monitor</string>
+              <string>webdav</string>
+              <string>zenphoto</string>
             </a>
           </choices>
         </hudson.model.ChoiceParameterDefinition>
       </parameterDefinitions>
     </hudson.model.ParametersDefinitionProperty>
   </properties>
-  <scm class="hudson.scm.NullSCM"/>
-  <assignedNode>ubuntu-s3</assignedNode>
+  <scm class="hudson.plugins.git.GitSCM" plugin="git@3.9.1">
+    <configVersion>2</configVersion>
+    <userRemoteConfigs>
+      <hudson.plugins.git.UserRemoteConfig>
+        <url>https://github.com/ballab1/support</url>
+        <credentialsId>935a7b57-da74-45f7-9119-5a0529afb8ae</credentialsId>
+      </hudson.plugins.git.UserRemoteConfig>
+    </userRemoteConfigs>
+    <branches>
+      <hudson.plugins.git.BranchSpec>
+        <name>*/dev</name>
+      </hudson.plugins.git.BranchSpec>
+    </branches>
+    <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
+    <submoduleCfg class="list"/>
+    <extensions/>
+  </scm>
+  <assignedNode>ubuntu-s4</assignedNode>
   <canRoam>false</canRoam>
   <disabled>false</disabled>
   <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
@@ -48,20 +80,13 @@
   <customWorkspace>/home/bobb/prod</customWorkspace>
   <builders>
     <hudson.tasks.Shell>
-      <command>[[ $(docker ps -a --filter &quot;name=_&quot; --format &quot;{{.Names}}&quot;) ]] &amp;&amp; \
-        docker rm -f $(docker ps -a --filter &quot;name=_&quot; --format &quot;{{.Names}}&quot;)
-[[ $(docker ps -a --filter &quot;status=exited&quot; --filter &quot;status=dead&quot; --format &quot;{{.Names}}&quot;) ]] &amp;&amp; \
-        docker rm $(docker ps -a --filter &quot;status=exited&quot; --filter &quot;status=dead&quot; --format &quot;{{.Names}}&quot;)
-[[ $(docker images -f &quot;dangling=true&quot; -q) ]] &amp;&amp; \
-        docker rmi $(docker images -f &quot;dangling=true&quot; -q)
-
-docker-compose -f &quot;/home/bobb/$CONTAINER_DIR/docker-compose.yml&quot; build</command>
+      <command>docker-compose -f &quot;$CONTAINER_DIR/docker-compose.yml&quot; build</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers>
     <ie.googlielmo.publishtokafka.PublishToKafkaBuilder plugin="publishtokafka@1.0">
-      <bootstrapServers>broker:9092,10.1.3.11:9092</bootstrapServers>
-      <metadataBrokerList>broker:9092,10.1.3.11:9092</metadataBrokerList>
+      <bootstrapServers>broker:9092,10.1.3.6:9092,10.1.3.11:9092</bootstrapServers>
+      <metadataBrokerList>broker:9092,10.1.3.6:9092,10.1.3.11:9092</metadataBrokerList>
       <acks>1</acks>
       <topic>jenkins_data</topic>
       <excludePlugin>false</excludePlugin>
@@ -77,10 +102,10 @@ docker-compose -f &quot;/home/bobb/$CONTAINER_DIR/docker-compose.yml&quot; build
     </ie.googlielmo.publishtokafka.PublishToKafkaBuilder>
   </publishers>
   <buildWrappers>
-    <org.jenkinsci.plugins.credentialsbinding.impl.SecretBuildWrapper plugin="credentials-binding@1.15">
+    <org.jenkinsci.plugins.credentialsbinding.impl.SecretBuildWrapper plugin="credentials-binding@1.16">
       <bindings class="empty-list"/>
     </org.jenkinsci.plugins.credentialsbinding.impl.SecretBuildWrapper>
-    <hudson.plugins.timestamper.TimestamperBuildWrapper plugin="timestamper@1.8.9"/>
+    <hudson.plugins.timestamper.TimestamperBuildWrapper plugin="timestamper@1.8.10"/>
     <hudson.plugins.ansicolor.AnsiColorBuildWrapper plugin="ansicolor@0.5.2">
       <colorMapName>gnome-terminal</colorMapName>
     </hudson.plugins.ansicolor.AnsiColorBuildWrapper>
