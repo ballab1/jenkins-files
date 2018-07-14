@@ -30,7 +30,7 @@
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.tasks.Shell>
-      <command>tar czf recipes.tgz /home/bobb/prodution/vols/www/recipes</command>
+      <command>tar czf recipes.tgz /home/bobb/production/vols/www/recipes</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers>
