@@ -83,7 +83,7 @@
       <hudson.plugins.git.extensions.impl.GitLFSPull/>
     </extensions>
   </scm>
-  <assignedNode>ubuntu-s4</assignedNode>
+  <assignedNode>ubuntu-s3</assignedNode>
   <canRoam>false</canRoam>
   <disabled>false</disabled>
   <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
@@ -98,8 +98,8 @@
   </builders>
   <publishers>
     <ie.googlielmo.publishtokafka.PublishToKafkaBuilder plugin="publishtokafka@1.0">
-      <bootstrapServers>broker:9092,10.1.3.6:9092,10.1.3.11:9092</bootstrapServers>
-      <metadataBrokerList>broker:9092,10.1.3.6:9092,10.1.3.11:9092</metadataBrokerList>
+      <bootstrapServers>10.1.3.6:9092,10.1.3.10:9092,0.1.3.11:9092</bootstrapServers>
+      <metadataBrokerList>10.1.3.6:9092,10.1.3.10:9092,0.1.3.11:9092</metadataBrokerList>
       <acks>1</acks>
       <topic>jenkins_data</topic>
       <excludePlugin>false</excludePlugin>
