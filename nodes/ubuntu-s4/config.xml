@@ -2,7 +2,7 @@
 <slave>
   <name>ubuntu-s4</name>
   <description></description>
-  <remoteFS>/home/jenkins.s4</remoteFS>
+  <remoteFS>/home/jenkins.s3</remoteFS>
   <numExecutors>3</numExecutors>
   <mode>NORMAL</mode>
   <retentionStrategy class="hudson.slaves.RetentionStrategy$Always"/>
