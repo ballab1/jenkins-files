@@ -1,18 +1,7 @@
 <?xml version='1.1' encoding='UTF-8'?>
 <slave>
-  <temporaryOfflineCause class="hudson.slaves.OfflineCause$UserCause">
-    <timestamp>1532083030739</timestamp>
-    <description>
-      <holder>
-        <owner>hudson.slaves.Messages</owner>
-      </holder>
-      <key>SlaveComputer.DisconnectedBy</key>
-      <args>
-        <string>bobb</string>
-        <string></string>
-      </args>
-    </description>
-    <userId>bobb</userId>
+  <temporaryOfflineCause class="hudson.slaves.OfflineCause$LaunchFailed">
+    <timestamp>1532083626645</timestamp>
   </temporaryOfflineCause>
   <name>ubuntu-s2</name>
   <description></description>
