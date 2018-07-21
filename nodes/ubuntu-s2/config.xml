@@ -1,8 +1,5 @@
 <?xml version='1.1' encoding='UTF-8'?>
 <slave>
-  <temporaryOfflineCause class="hudson.slaves.OfflineCause$LaunchFailed">
-    <timestamp>1532173927573</timestamp>
-  </temporaryOfflineCause>
   <name>ubuntu-s2</name>
   <description></description>
   <remoteFS>/home/jenkins.s3</remoteFS>
