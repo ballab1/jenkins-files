@@ -1,7 +1,7 @@
 <?xml version='1.1' encoding='UTF-8'?>
 <slave>
   <temporaryOfflineCause class="hudson.slaves.OfflineCause$LaunchFailed">
-    <timestamp>1532139069533</timestamp>
+    <timestamp>1532139788411</timestamp>
   </temporaryOfflineCause>
   <name>ubuntu-s2</name>
   <description></description>
