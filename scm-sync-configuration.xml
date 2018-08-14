@@ -7,10 +7,8 @@
   <commitMessagePattern>[message]</commitMessagePattern>
   <manualSynchronizationIncludes>
     <include>fingerprints/*</include>
-    <include>log/**</include>
-    <include>nodes/**</include>
+    <include>nodes/ubuntu*</include>
     <include>parsers/**</include>
-    <include>scm-sync-configuration/**</include>
     <include>secrets/**</include>
     <include>userContent/**</include>
     <include>workflow-libs/**</include>
