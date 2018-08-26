@@ -121,7 +121,8 @@
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.tasks.Shell>
-      <command>env | sort
+      <command>[ $Always_Build != &apos;true&apos; ] || export ALWAYS_BUILD=1
+[ $Always_Push != &apos;true&apos; ] || export DOCKER_ALWAYS_PUSH=1
 ./buildall</command>
     </hudson.tasks.Shell>
   </builders>
@@ -145,23 +146,5 @@
     <hudson.plugins.ansicolor.AnsiColorBuildWrapper plugin="ansicolor@0.5.2">
       <colorMapName>xterm</colorMapName>
     </hudson.plugins.ansicolor.AnsiColorBuildWrapper>
-    <EnvInjectBuildWrapper plugin="envinject@2.1.6">
-      <info>
-        <secureGroovyScript plugin="script-security@1.44">
-          <script>import hudson.model.*
-if ( Always_Build != &apos;true&apos; ) {
-    def pa = new ParametersAction([new StringParameterValue(&apos;ALWAYS_BUILD&apos;, &apos;1&apos;)])
-    Thread.currentThread().executable.addAction(pa)
-}
-if ( Always_Push != &apos;true&apos; ) {
-    def pa = new ParametersAction([new StringParameterValue(&apos;DOCKER_ALWAYS_PUSH&apos;, &apos;1&apos;)])
-    Thread.currentThread().executable.addAction(pa)
-}
-</script>
-          <sandbox>false</sandbox>
-        </secureGroovyScript>
-        <loadFilesFromMaster>false</loadFilesFromMaster>
-      </info>
-    </EnvInjectBuildWrapper>
   </buildWrappers>
 </project>
