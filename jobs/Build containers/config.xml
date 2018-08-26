@@ -148,7 +148,8 @@
     <EnvInjectBuildWrapper plugin="envinject@2.1.6">
       <info>
         <secureGroovyScript plugin="script-security@1.44">
-          <script>if ( Always_Build != &apos;true&apos; ) {
+          <script>import hudson.model.*
+if ( Always_Build != &apos;true&apos; ) {
     def pa = new ParametersAction([new StringParameterValue(&quot;ALWAYS_BUILD&quot;, 1)])
     Thread.currentThread().executable.addAction(pa)
 }
