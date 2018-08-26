@@ -19,21 +19,26 @@
     <org.bstick12.jenkinsci.plugins.leastload.LeastLoadDisabledProperty plugin="leastload@2.0.1">
       <leastLoadDisabled>false</leastLoadDisabled>
     </org.bstick12.jenkinsci.plugins.leastload.LeastLoadDisabledProperty>
-    <EnvInjectJobProperty plugin="envinject@2.1.6">
-      <info>
-        <propertiesContent>CBF_VERSION=dev
-</propertiesContent>
-        <secureGroovyScript plugin="script-security@1.44">
-          <script></script>
-          <sandbox>false</sandbox>
-        </secureGroovyScript>
-        <loadFilesFromMaster>false</loadFilesFromMaster>
-      </info>
-      <on>true</on>
-      <keepJenkinsSystemVariables>true</keepJenkinsSystemVariables>
-      <keepBuildVariables>true</keepBuildVariables>
-      <overrideBuildParameters>false</overrideBuildParameters>
-    </EnvInjectJobProperty>
+    <hudson.model.ParametersDefinitionProperty>
+      <parameterDefinitions>
+        <hudson.model.StringParameterDefinition>
+          <name>CBF_VERSION</name>
+          <description></description>
+          <defaultValue>dev</defaultValue>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.BooleanParameterDefinition>
+          <name>Always_Build</name>
+          <description></description>
+          <defaultValue>false</defaultValue>
+        </hudson.model.BooleanParameterDefinition>
+        <hudson.model.BooleanParameterDefinition>
+          <name>Always_Push</name>
+          <description></description>
+          <defaultValue>false</defaultValue>
+        </hudson.model.BooleanParameterDefinition>
+      </parameterDefinitions>
+    </hudson.model.ParametersDefinitionProperty>
   </properties>
   <scm class="hudson.plugins.git.GitSCM" plugin="git@3.9.1">
     <configVersion>2</configVersion>
@@ -139,5 +144,17 @@
     <hudson.plugins.ansicolor.AnsiColorBuildWrapper plugin="ansicolor@0.5.2">
       <colorMapName>xterm</colorMapName>
     </hudson.plugins.ansicolor.AnsiColorBuildWrapper>
+    <EnvInjectBuildWrapper plugin="envinject@2.1.6">
+      <info>
+        <scriptContent>[ &quot;${Always_Build} != &apos;true&apos; ]  || export ALWAYS_BUILD=1
+[ &quot;${Always_Push} != &apos;true&apos; ]  || export DOCKER_ALWAYS_PUSH=1
+</scriptContent>
+        <secureGroovyScript plugin="script-security@1.44">
+          <script></script>
+          <sandbox>false</sandbox>
+        </secureGroovyScript>
+        <loadFilesFromMaster>false</loadFilesFromMaster>
+      </info>
+    </EnvInjectBuildWrapper>
   </buildWrappers>
 </project>
