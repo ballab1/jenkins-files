@@ -131,6 +131,8 @@
     <hudson.tasks.Shell>
       <command>[ $Always_Build != &apos;true&apos; ] || export ALWAYS_BUILD=1
 [ $Always_Push != &apos;true&apos; ] || export DOCKER_ALWAYS_PUSH=1
+git checkout dev
+git submodule foreach git checkout dev
 ./buildall</command>
     </hudson.tasks.Shell>
   </builders>
