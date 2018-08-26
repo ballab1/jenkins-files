@@ -53,15 +53,15 @@
   <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
   <triggers>
     <org.jenkinsci.plugins.ghprb.GhprbTrigger plugin="ghprb@1.42.0">
-      <spec>H/5 * * * *</spec>
+      <spec>H/3 * * * *</spec>
       <configVersion>3</configVersion>
       <adminlist>bobb</adminlist>
       <allowMembersOfWhitelistedOrgsAsAdmin>false</allowMembersOfWhitelistedOrgsAsAdmin>
       <orgslist></orgslist>
-      <cron>H/5 * * * *</cron>
+      <cron>H/3 * * * *</cron>
       <buildDescTemplate></buildDescTemplate>
       <onlyTriggerPhrase>false</onlyTriggerPhrase>
-      <useGitHubHooks>true</useGitHubHooks>
+      <useGitHubHooks>false</useGitHubHooks>
       <permitAll>false</permitAll>
       <whitelist>https://github.com/ballab1/</whitelist>
       <autoCloseFailedPullRequests>false</autoCloseFailedPullRequests>
