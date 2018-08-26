@@ -61,7 +61,7 @@
       </hudson.plugins.git.extensions.impl.SubmoduleOption>
     </extensions>
   </scm>
-  <assignedNode>ubuntu-s3</assignedNode>
+  <assignedNode>ubuntu-s4</assignedNode>
   <canRoam>false</canRoam>
   <disabled>false</disabled>
   <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
