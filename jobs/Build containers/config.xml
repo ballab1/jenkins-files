@@ -21,7 +21,8 @@
     </org.bstick12.jenkinsci.plugins.leastload.LeastLoadDisabledProperty>
     <EnvInjectJobProperty plugin="envinject@2.1.6">
       <info>
-        <propertiesContent>CBF_VERSION=dev</propertiesContent>
+        <propertiesContent>CBF_VERSION=dev
+</propertiesContent>
         <secureGroovyScript plugin="script-security@1.44">
           <script></script>
           <sandbox>false</sandbox>
