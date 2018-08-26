@@ -70,6 +70,9 @@
         <org.jenkinsci.plugins.ghprb.GhprbBranch>
           <branch>dev</branch>
         </org.jenkinsci.plugins.ghprb.GhprbBranch>
+        <org.jenkinsci.plugins.ghprb.GhprbBranch>
+          <branch>master</branch>
+        </org.jenkinsci.plugins.ghprb.GhprbBranch>
       </whiteListTargetBranches>
       <gitHubAuthId>3efefa80-5ad3-4f3e-acd4-a11bbe487fc2</gitHubAuthId>
       <triggerPhrase></triggerPhrase>
