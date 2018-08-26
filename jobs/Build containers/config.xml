@@ -146,8 +146,8 @@
     </hudson.plugins.ansicolor.AnsiColorBuildWrapper>
     <EnvInjectBuildWrapper plugin="envinject@2.1.6">
       <info>
-        <scriptContent>[ &quot;${Always_Build} != &apos;true&apos; ]  || export ALWAYS_BUILD=1
-[ &quot;${Always_Push} != &apos;true&apos; ]  || export DOCKER_ALWAYS_PUSH=1
+        <scriptContent>[ &quot;$Always_Build&quot; != &apos;true&apos; ]  || export ALWAYS_BUILD=1
+[ &quot;$Always_Push&quot; != &apos;true&apos; ]  || export DOCKER_ALWAYS_PUSH=1
 </scriptContent>
         <secureGroovyScript plugin="script-security@1.44">
           <script></script>
