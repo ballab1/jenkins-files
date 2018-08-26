@@ -121,7 +121,8 @@
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.tasks.Shell>
-      <command>./buildall</command>
+      <command>env | sort
+./buildall</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers>
