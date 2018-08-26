@@ -126,8 +126,8 @@
   </builders>
   <publishers>
     <hudson.tasks.ArtifactArchiver>
-      <artifacts>log/*</artifacts>
-      <allowEmptyArchive>false</allowEmptyArchive>
+      <artifacts>logs/*</artifacts>
+      <allowEmptyArchive>true</allowEmptyArchive>
       <onlyIfSuccessful>false</onlyIfSuccessful>
       <fingerprint>false</fingerprint>
       <defaultExcludes>true</defaultExcludes>
