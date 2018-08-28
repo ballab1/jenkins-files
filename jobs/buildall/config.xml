@@ -68,16 +68,19 @@ stage &apos;Build&apos;
             ansiColor(&apos;xterm&apos;) {
                 timestamps {
                     def vars = &apos;&apos;
-                    if ( Always_Build != &apos;true&apos; ) { vars += &apos;ALWAYS_BUILD=1 &apos; }
-                    if ( Always_Push != &apos;true&apos; ) { vars += &apos;Always_Push=1 &apos; }
+                    if ( Always_Build == &apos;true&apos; ) { vars += &apos;ALWAYS_BUILD=1 &apos; }
+                    if ( Always_Push == &apos;true&apos; ) { vars += &apos;DOCKER_ALWAYS_PUSH=1 &apos; }
                     sh &quot;${vars} ./buildall&quot;
-                    archiveArtifacts &apos;logs/*&apos;
+                    archiveArtifacts &apos;logs/*&apos;, allowEmptyArchive = true
                 }
             }
         }
+        withKafkaLog(kafkaServers: &apos;10.1.3.6:9092,10.1.3.10:9092,10.1.3.11:9092&apos;, kafkaTopic: &apos;test_data&apos;) {
+            echo &apos;Finally&apos;
+        }
     }
 post { 
-    always { 
+    always {
         echo &apos;I will always say Hello again!&apos;
     }
 }
