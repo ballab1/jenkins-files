@@ -63,13 +63,13 @@
     }
     stages {
         stage(&apos;Perpare Workspace&apos;) {
-            ws {
+            steps {
                 checkout([$class: &apos;GitSCM&apos;, branches: [[name: &apos;*${BRANCH}&apos;]], doGenerateSubmoduleConfigurations: false, extensions: [[$class: &apos;LocalBranch&apos;, localBranch: &apos;${BRANCH}&apos;], [$class: &apos;CleanBeforeCheckout&apos;], [$class: &apos;GitLFSPull&apos;], [$class: &apos;DisableRemotePoll&apos;], [$class: &apos;IgnoreNotifyCommit&apos;], [$class: &apos;SubmoduleOption&apos;, disableSubmodules: false, parentCredentials: true, recursiveSubmodules: true, reference: &apos;&apos;, trackingSubmodules: true]], submoduleCfg: [], userRemoteConfigs: [[credentialsId: &apos;935a7b57-da74-45f7-9119-5a0529afb8ae&apos;, url: &apos;https://github.com/ballab1/support&apos;]]])
                 sh &apos;git submodule foreach git checkout &quot;$BRANCH&quot;&apos;
             }
         }
         stage(&apos;Build&apos;) {
-            ws {
+            steps {
                 ansiColor(&apos;xterm&apos;) {
                     timestamps {
                         def vars = &apos;&apos;
