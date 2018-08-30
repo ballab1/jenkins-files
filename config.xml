@@ -129,6 +129,14 @@
         </hudson.plugins.view.dashboard.stats.StatSlaves>
       </bottomPortlets>
     </hudson.plugins.view.dashboard.Dashboard>
+    <hudson.plugins.sectioned__view.SectionedView plugin="sectioned-view@1.25">
+      <owner class="hudson" reference="../../.."/>
+      <name>CI-CD</name>
+      <filterExecutors>false</filterExecutors>
+      <filterQueue>false</filterQueue>
+      <properties class="hudson.model.View$PropertyList"/>
+      <sections/>
+    </hudson.plugins.sectioned__view.SectionedView>
   </views>
   <primaryView>all</primaryView>
   <slaveAgentPort>50000</slaveAgentPort>
