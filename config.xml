@@ -115,14 +115,19 @@
       </columns>
       <recurse>false</recurse>
       <useCssStyle>false</useCssStyle>
-      <includeStdJobList>false</includeStdJobList>
+      <includeStdJobList>true</includeStdJobList>
       <hideJenkinsPanels>false</hideJenkinsPanels>
       <leftPortletWidth>50%</leftPortletWidth>
       <rightPortletWidth>50%</rightPortletWidth>
       <leftPortlets/>
       <rightPortlets/>
       <topPortlets/>
-      <bottomPortlets/>
+      <bottomPortlets>
+        <hudson.plugins.view.dashboard.stats.StatSlaves>
+          <id>dashboard_portlet_27916</id>
+          <name>Slaves statistics</name>
+        </hudson.plugins.view.dashboard.stats.StatSlaves>
+      </bottomPortlets>
     </hudson.plugins.view.dashboard.Dashboard>
   </views>
   <primaryView>all</primaryView>
