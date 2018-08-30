@@ -135,7 +135,27 @@
       <filterExecutors>false</filterExecutors>
       <filterQueue>false</filterQueue>
       <properties class="hudson.model.View$PropertyList"/>
-      <sections/>
+      <sections>
+        <hudson.plugins.sectioned__view.ListViewSection>
+          <jobNames>
+            <comparator class="hudson.util.CaseInsensitiveComparator" reference="../../../../../hudson.plugins.view.dashboard.Dashboard/jobNames/comparator"/>
+            <string>Build Support Images</string>
+          </jobNames>
+          <jobFilters/>
+          <name>Builds</name>
+          <width>FULL</width>
+          <alignment>CENTER</alignment>
+          <columns>
+            <hudson.views.StatusColumn/>
+            <hudson.views.WeatherColumn/>
+            <hudson.views.JobColumn/>
+            <hudson.views.LastSuccessColumn/>
+            <hudson.views.LastFailureColumn/>
+            <hudson.views.LastDurationColumn/>
+            <hudson.views.BuildButtonColumn/>
+          </columns>
+        </hudson.plugins.sectioned__view.ListViewSection>
+      </sections>
     </hudson.plugins.sectioned__view.SectionedView>
   </views>
   <primaryView>all</primaryView>
