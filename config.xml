@@ -140,6 +140,7 @@
           <jobNames>
             <comparator class="hudson.util.CaseInsensitiveComparator" reference="../../../../../hudson.plugins.view.dashboard.Dashboard/jobNames/comparator"/>
             <string>Build Support Images</string>
+            <string>Stage Production</string>
           </jobNames>
           <jobFilters/>
           <name>Builds</name>
