@@ -132,8 +132,8 @@
     <hudson.plugins.sectioned__view.SectionedView plugin="sectioned-view@1.25">
       <owner class="hudson" reference="../../.."/>
       <name>CI-CD</name>
-      <filterExecutors>false</filterExecutors>
-      <filterQueue>false</filterQueue>
+      <filterExecutors>true</filterExecutors>
+      <filterQueue>true</filterQueue>
       <properties class="hudson.model.View$PropertyList"/>
       <sections>
         <hudson.plugins.sectioned__view.ListViewSection>
