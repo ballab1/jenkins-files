@@ -129,35 +129,6 @@
         </hudson.plugins.view.dashboard.stats.StatSlaves>
       </bottomPortlets>
     </hudson.plugins.view.dashboard.Dashboard>
-    <hudson.plugins.sectioned__view.SectionedView plugin="sectioned-view@1.25">
-      <owner class="hudson" reference="../../.."/>
-      <name>CI-CD</name>
-      <filterExecutors>true</filterExecutors>
-      <filterQueue>true</filterQueue>
-      <properties class="hudson.model.View$PropertyList"/>
-      <sections>
-        <hudson.plugins.sectioned__view.ListViewSection>
-          <jobNames>
-            <comparator class="hudson.util.CaseInsensitiveComparator" reference="../../../../../hudson.plugins.view.dashboard.Dashboard/jobNames/comparator"/>
-            <string>Build Support Images</string>
-            <string>Stage Production</string>
-          </jobNames>
-          <jobFilters/>
-          <name>Builds</name>
-          <width>FULL</width>
-          <alignment>CENTER</alignment>
-          <columns>
-            <hudson.views.StatusColumn/>
-            <hudson.views.WeatherColumn/>
-            <hudson.views.JobColumn/>
-            <hudson.views.LastSuccessColumn/>
-            <hudson.views.LastFailureColumn/>
-            <hudson.views.LastDurationColumn/>
-            <hudson.views.BuildButtonColumn/>
-          </columns>
-        </hudson.plugins.sectioned__view.ListViewSection>
-      </sections>
-    </hudson.plugins.sectioned__view.SectionedView>
     <listView>
       <owner class="hudson" reference="../../.."/>
       <name>Housekeeping</name>
