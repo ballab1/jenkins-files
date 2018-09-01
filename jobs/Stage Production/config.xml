@@ -36,6 +36,8 @@
         <propertiesContent>CFG_USER=bobb 
 CFG_GITHUB_EMAIL=bob.ballantyne@emc.com
 CFG_GITHUB_NAME=ballab1
+DOCKER_REGISTRY=ubuntu_s2:5000/
+CONTAINER_TAG=latest
 </propertiesContent>
         <secureGroovyScript plugin="script-security@1.44">
           <script></script>
