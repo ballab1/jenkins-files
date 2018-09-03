@@ -161,11 +161,13 @@
     <listView>
       <owner class="hudson" reference="../../.."/>
       <name>CI and CD</name>
-      <filterExecutors>false</filterExecutors>
-      <filterQueue>false</filterQueue>
+      <filterExecutors>true</filterExecutors>
+      <filterQueue>true</filterQueue>
       <properties class="hudson.model.View$PropertyList"/>
       <jobNames>
         <comparator class="hudson.util.CaseInsensitiveComparator"/>
+        <string>Build Support Images</string>
+        <string>Stage Production</string>
       </jobNames>
       <jobFilters/>
       <columns>
