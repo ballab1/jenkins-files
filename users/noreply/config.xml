@@ -3,16 +3,16 @@
   <fullName>noreply</fullName>
   <properties>
     <jenkins.security.ApiTokenProperty>
-      <apiToken>{AQAAABAAAAAwOpEqaIIv4X10vYpcsovpbHi+oCeLcGygtedn4LBxo4uQ4nL603fVz2eIjFbmEpEBYNRgIk+0RXhTP/u6CprPzQ==}</apiToken>
+      <apiToken>{AQAAABAAAAAwnUT2pxUryKKvai0gbjWJ0yqvLIExZ3dk2vPwUy2riBT2pvAShpSjZAj7FZWMr3CqD9J/DmIpGzaj5Vr9HF3f7g==}</apiToken>
       <tokenStore>
         <tokenList>
           <jenkins.security.apitoken.ApiTokenStore_-HashedToken>
-            <uuid>58796f81-6de1-44fd-be98-1482d5a30af9</uuid>
+            <uuid>41467a03-4b7b-4296-8427-7b74906c6b86</uuid>
             <name>Legacy Token</name>
-            <creationDate>2018-09-15 19:37:32.200 UTC</creationDate>
+            <creationDate>2018-09-15 19:37:46.666 UTC</creationDate>
             <value>
               <version>10</version>
-              <hash>4e85ee927d23a97ed72b723b48bcf2454a3d5ffdf556a257e767ac5814c67c20</hash>
+              <hash>2bb056b271eed1cb3252904c9f2ef5f145da9ec64fe6c10934542f3a4c842c65</hash>
             </value>
           </jenkins.security.apitoken.ApiTokenStore_-HashedToken>
         </tokenList>
