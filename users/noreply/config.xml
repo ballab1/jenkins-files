@@ -4,19 +4,8 @@
   <description></description>
   <properties>
     <jenkins.security.ApiTokenProperty>
-      <apiToken>{AQAAABAAAAAww0sFQv6nMNX+Aikwv+ySA6dIYDsVK3jmh60+pGr1Widiqjnzj+aalInC8iVVCrtB0AZTWHVmCDJCkLzIOCyxgg==}</apiToken>
       <tokenStore>
-        <tokenList>
-          <jenkins.security.apitoken.ApiTokenStore_-HashedToken>
-            <uuid>dfa50373-47af-4452-bc20-0c19fa4a9843</uuid>
-            <name>Legacy Token</name>
-            <creationDate>2018-09-15 19:37:48.385 UTC</creationDate>
-            <value>
-              <version>10</version>
-              <hash>f295f8f5384043f29f057643c40024a9282dce02dd309d44692aa408cbb89a35</hash>
-            </value>
-          </jenkins.security.apitoken.ApiTokenStore_-HashedToken>
-        </tokenList>
+        <tokenList/>
       </tokenStore>
     </jenkins.security.ApiTokenProperty>
     <io.jenkins.blueocean.autofavorite.user.FavoritingUserProperty plugin="blueocean-autofavorite@1.2.2">
