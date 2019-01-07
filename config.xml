@@ -2,6 +2,7 @@
 <hudson>
   <disabledAdministrativeMonitors>
     <string>hudson.diagnosis.ReverseProxySetupMonitor</string>
+    <string>OldData</string>
   </disabledAdministrativeMonitors>
   <version>2.150.1</version>
   <installStateName>RESTART</installStateName>
