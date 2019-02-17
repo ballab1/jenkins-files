@@ -49,6 +49,7 @@
             <network></network>
             <volumes/>
             <volumesFrom2/>
+            <devices/>
             <environment/>
             <bindPorts></bindPorts>
             <bindAllPorts>false</bindAllPorts>
