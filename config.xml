@@ -98,10 +98,10 @@
       <properties class="hudson.model.View$PropertyList"/>
       <jobNames>
         <comparator class="hudson.util.CaseInsensitiveComparator"/>
-        <string>Backup config files</string>
         <string>Backup Databases</string>
         <string>Backup Recipes</string>
         <string>DBMS-backup</string>
+        <string>xBackup config files</string>
       </jobNames>
       <jobFilters/>
       <columns>
