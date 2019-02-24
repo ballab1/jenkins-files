@@ -101,7 +101,6 @@
         <string>Backup Databases</string>
         <string>DBMS-backup</string>
         <string>xBackup config files</string>
-        <string>xBackup Recipes</string>
       </jobNames>
       <jobFilters/>
       <columns>
