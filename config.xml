@@ -138,11 +138,11 @@
       <jobNames>
         <comparator class="hudson.util.CaseInsensitiveComparator" reference="../../../hudson.plugins.view.dashboard.Dashboard/jobNames/comparator"/>
         <string>Clean Docker Regisrty</string>
-        <string>Cleanup Host</string>
         <string>Docker Registry Contents</string>
         <string>Docker Slave Test</string>
         <string>Install Linux updates</string>
         <string>Uptime Pipeline</string>
+        <string>xCleanup Host</string>
       </jobNames>
       <jobFilters/>
       <columns>
