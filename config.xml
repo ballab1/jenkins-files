@@ -140,7 +140,6 @@
         <string>Clean Docker Regisrty</string>
         <string>Docker Registry Contents</string>
         <string>Docker Slave Test</string>
-        <string>Install Linux updates</string>
         <string>Uptime Pipeline</string>
       </jobNames>
       <jobFilters/>
