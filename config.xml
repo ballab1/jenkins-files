@@ -142,7 +142,6 @@
         <string>Docker Slave Test</string>
         <string>Install Linux updates</string>
         <string>Uptime Pipeline</string>
-        <string>xCleanup Host</string>
       </jobNames>
       <jobFilters/>
       <columns>
