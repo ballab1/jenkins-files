@@ -67,7 +67,7 @@
         <hudson.plugins.git.extensions.impl.CleanBeforeCheckout/>
       </extensions>
     </scm>
-    <scriptPath>BuildSupport.jenkinsfile</scriptPath>
+    <scriptPath>BuildSupportPDR.jenkinsfile</scriptPath>
     <lightweight>true</lightweight>
   </definition>
   <triggers/>
