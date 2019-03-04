@@ -142,6 +142,7 @@
         <string>Clean Docker Registry</string>
         <string>Cleanup Docker Hosts</string>
         <string>Docker Registry Contents</string>
+        <string>Docker Slave Test</string>
         <string>Uptime</string>
       </jobNames>
       <jobFilters/>
