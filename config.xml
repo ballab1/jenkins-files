@@ -138,9 +138,11 @@
       <properties class="hudson.model.View$PropertyList"/>
       <jobNames>
         <comparator class="hudson.util.CaseInsensitiveComparator" reference="../../../hudson.plugins.view.dashboard.Dashboard/jobNames/comparator"/>
+        <string>Check for Linux updates</string>
+        <string>Clean Docker Registry</string>
+        <string>Cleanup Docker Hosts</string>
         <string>Docker Registry Contents</string>
-        <string>xDocker Slave Test</string>
-        <string>xUptime Pipeline</string>
+        <string>Uptime</string>
       </jobNames>
       <jobFilters/>
       <columns>
