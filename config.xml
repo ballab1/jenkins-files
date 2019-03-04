@@ -98,8 +98,9 @@
       <properties class="hudson.model.View$PropertyList"/>
       <jobNames>
         <comparator class="hudson.util.CaseInsensitiveComparator"/>
+        <string>Backup config files</string>
+        <string>Backup Recipes</string>
         <string>DBMS-backup</string>
-        <string>xBackup Databases</string>
       </jobNames>
       <jobFilters/>
       <columns>
@@ -124,7 +125,7 @@
       <topPortlets/>
       <bottomPortlets>
         <hudson.plugins.view.dashboard.stats.StatSlaves>
-          <id>dashboard_portlet_27916</id>
+          <id>dashboard_portlet_23817</id>
           <name>Slaves statistics</name>
         </hudson.plugins.view.dashboard.stats.StatSlaves>
       </bottomPortlets>
@@ -137,7 +138,6 @@
       <properties class="hudson.model.View$PropertyList"/>
       <jobNames>
         <comparator class="hudson.util.CaseInsensitiveComparator" reference="../../../hudson.plugins.view.dashboard.Dashboard/jobNames/comparator"/>
-        <string>Clean Docker Regisrty</string>
         <string>Docker Registry Contents</string>
         <string>xDocker Slave Test</string>
         <string>xUptime Pipeline</string>
