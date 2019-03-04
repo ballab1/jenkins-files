@@ -123,12 +123,7 @@
       <leftPortlets/>
       <rightPortlets/>
       <topPortlets/>
-      <bottomPortlets>
-        <hudson.plugins.view.dashboard.stats.StatSlaves>
-          <id>dashboard_portlet_23817</id>
-          <name>Slaves statistics</name>
-        </hudson.plugins.view.dashboard.stats.StatSlaves>
-      </bottomPortlets>
+      <bottomPortlets/>
     </hudson.plugins.view.dashboard.Dashboard>
     <listView>
       <owner class="hudson" reference="../../.."/>
