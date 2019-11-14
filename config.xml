@@ -2,9 +2,8 @@
 <hudson>
   <disabledAdministrativeMonitors>
     <string>hudson.diagnosis.ReverseProxySetupMonitor</string>
-    <string>OldData</string>
   </disabledAdministrativeMonitors>
-  <version>2.150.3</version>
+  <version>2.190.2</version>
   <installStateName>RESTART</installStateName>
   <numExecutors>2</numExecutors>
   <mode>NORMAL</mode>
@@ -25,7 +24,7 @@
   <viewsTabBar class="hudson.views.DefaultViewsTabBar"/>
   <myViewsTabBar class="hudson.views.DefaultMyViewsTabBar"/>
   <clouds>
-    <com.nirima.jenkins.plugins.docker.DockerCloud plugin="docker-plugin@1.1.6">
+    <com.nirima.jenkins.plugins.docker.DockerCloud plugin="docker-plugin@1.1.8">
       <name>docker</name>
       <templates>
         <com.nirima.jenkins.plugins.docker.DockerTemplate>
@@ -41,7 +40,7 @@
             <idleMinutes>10</idleMinutes>
           </retentionStrategy>
           <dockerTemplateBase>
-            <image>jenkinsci/slave:3.16-1-alpine</image>
+            <image>ubuntu-s2:5000/thirdparty/jenkinsci/slave:3.16-1-alpine</image>
             <pullCredentialsId></pullCredentialsId>
             <dockerCommand></dockerCommand>
             <hostname></hostname>
@@ -67,7 +66,7 @@
         </com.nirima.jenkins.plugins.docker.DockerTemplate>
       </templates>
       <dockerApi>
-        <dockerHost plugin="docker-commons@1.13">
+        <dockerHost plugin="docker-commons@1.15">
           <uri>unix:/var/run/docker.sock</uri>
         </dockerHost>
         <connectTimeout>60</connectTimeout>
@@ -79,6 +78,32 @@
         <disabledByChoice>false</disabledByChoice>
       </disabled>
     </com.nirima.jenkins.plugins.docker.DockerCloud>
+    <org.csanchez.jenkins.plugins.kubernetes.KubernetesCloud plugin="kubernetes@1.21.1">
+      <name>kubernetes</name>
+      <defaultsProviderTemplate></defaultsProviderTemplate>
+      <templates/>
+      <serverUrl>https://10.1.3.14:16443</serverUrl>
+      <skipTlsVerify>true</skipTlsVerify>
+      <addMasterProxyEnvVars>false</addMasterProxyEnvVars>
+      <capOnlyOnAlivePods>false</capOnlyOnAlivePods>
+      <directConnection>false</directConnection>
+      <jenkinsUrl>https://10.1.3.6/jenkins</jenkinsUrl>
+      <credentialsId>11ac7915-19d5-4e38-9e25-e4f634ea8b9f</credentialsId>
+      <containerCap>10</containerCap>
+      <retentionTimeout>5</retentionTimeout>
+      <connectTimeout>5</connectTimeout>
+      <readTimeout>15</readTimeout>
+      <podLabels>
+        <org.csanchez.jenkins.plugins.kubernetes.PodLabel>
+          <key>jenkins-label</key>
+          <value>POD_LABEL</value>
+        </org.csanchez.jenkins.plugins.kubernetes.PodLabel>
+      </podLabels>
+      <usageRestricted>false</usageRestricted>
+      <maxRequestsPerHost>32</maxRequestsPerHost>
+      <waitForPodSec>600</waitForPodSec>
+      <podRetention class="org.csanchez.jenkins.plugins.kubernetes.pod.retention.Never"/>
+    </org.csanchez.jenkins.plugins.kubernetes.KubernetesCloud>
   </clouds>
   <quietPeriod>5</quietPeriod>
   <scmCheckoutRetryCount>0</scmCheckoutRetryCount>
@@ -90,17 +115,14 @@
       <filterQueue>false</filterQueue>
       <properties class="hudson.model.View$PropertyList"/>
     </hudson.model.AllView>
-    <hudson.plugins.view.dashboard.Dashboard plugin="dashboard-view@2.10">
+    <hudson.plugins.view.dashboard.Dashboard plugin="dashboard-view@2.12">
       <owner class="hudson" reference="../../.."/>
-      <name>Backups</name>
+      <name>Backup and Restore</name>
       <filterExecutors>false</filterExecutors>
       <filterQueue>false</filterQueue>
       <properties class="hudson.model.View$PropertyList"/>
       <jobNames>
         <comparator class="hudson.util.CaseInsensitiveComparator"/>
-        <string>Backup config files</string>
-        <string>Backup Recipes</string>
-        <string>DBMS-backup</string>
       </jobNames>
       <jobFilters/>
       <columns>
@@ -114,6 +136,7 @@
         <org.jenkins.plugins.builton.BuiltOnColumn plugin="built-on-column@1.1"/>
         <hudson.plugins.favorite.column.FavoriteColumn plugin="favorite@2.3.2"/>
       </columns>
+      <includeRegex>(Backup|Restore).*</includeRegex>
       <recurse>false</recurse>
       <useCssStyle>false</useCssStyle>
       <includeStdJobList>true</includeStdJobList>
@@ -134,10 +157,9 @@
       <jobNames>
         <comparator class="hudson.util.CaseInsensitiveComparator" reference="../../../hudson.plugins.view.dashboard.Dashboard/jobNames/comparator"/>
         <string>Check for Linux updates</string>
-        <string>Clean Docker Registry</string>
-        <string>Cleanup Docker Hosts</string>
         <string>Docker Registry Contents</string>
         <string>Docker Slave Test</string>
+        <string>Kickstart SMEE</string>
         <string>Uptime</string>
       </jobNames>
       <jobFilters/>
@@ -152,6 +174,7 @@
         <org.jenkins.plugins.builton.BuiltOnColumn plugin="built-on-column@1.1"/>
         <hudson.plugins.favorite.column.FavoriteColumn plugin="favorite@2.3.2"/>
       </columns>
+      <includeRegex>Clean.*</includeRegex>
       <recurse>false</recurse>
     </listView>
     <listView>
@@ -162,8 +185,6 @@
       <properties class="hudson.model.View$PropertyList"/>
       <jobNames>
         <comparator class="hudson.util.CaseInsensitiveComparator"/>
-        <string>Build Support Images</string>
-        <string>Stage Production</string>
       </jobNames>
       <jobFilters/>
       <columns>
@@ -177,6 +198,37 @@
         <org.jenkins.plugins.builton.BuiltOnColumn plugin="built-on-column@1.1"/>
         <hudson.plugins.favorite.column.FavoriteColumn plugin="favorite@2.3.2"/>
       </columns>
+      <includeRegex>(Deploy|Build).*</includeRegex>
+      <recurse>false</recurse>
+    </listView>
+    <listView>
+      <owner class="hudson" reference="../../.."/>
+      <name>Directory Updates</name>
+      <filterExecutors>false</filterExecutors>
+      <filterQueue>false</filterQueue>
+      <properties class="hudson.model.View$PropertyList"/>
+      <jobNames>
+        <comparator class="hudson.util.CaseInsensitiveComparator"/>
+        <string>Update elk-deploy directories</string>
+        <string>Update enterprise directories</string>
+        <string>Update kafka-deploy directories</string>
+        <string>Update nagios-deploy directories</string>
+        <string>Update utilities directories</string>
+        <string>Update work-stuff directories</string>
+      </jobNames>
+      <jobFilters/>
+      <columns>
+        <hudson.views.StatusColumn/>
+        <hudson.views.WeatherColumn/>
+        <hudson.views.JobColumn/>
+        <hudson.views.LastSuccessColumn/>
+        <hudson.views.LastFailureColumn/>
+        <hudson.views.LastDurationColumn/>
+        <hudson.views.BuildButtonColumn/>
+        <org.jenkins.plugins.builton.BuiltOnColumn plugin="built-on-column@1.1"/>
+        <hudson.plugins.favorite.column.FavoriteColumn plugin="favorite@2.3.2"/>
+      </columns>
+      <includeRegex>Update\s.*\sdirectories</includeRegex>
       <recurse>false</recurse>
     </listView>
   </views>
@@ -195,7 +247,9 @@
           <default>
             <comparator class="hudson.util.CaseInsensitiveComparator"/>
           </default>
-          <int>1</int>
+          <int>2</int>
+          <string>JNLP_PROTOCOL_OPTS</string>
+          <string>-Dorg.jenkinsci.remoting.engine.JnlpProtocol3.disabled=true</string>
           <string>KAFKA_BOOTSTRAP_SERVERS</string>
           <string>ubuntu-s3:9092,ubuntu-s4:9092,ubuntu-s1:9092</string>
         </tree-map>

@@ -1,7 +1,9 @@
 <?xml version='1.1' encoding='UTF-8'?>
-<hudson.plugins.git.GitSCM_-DescriptorImpl plugin="git@3.9.3">
+<hudson.plugins.git.GitSCM_-DescriptorImpl plugin="git@4.0.0">
   <generation>9</generation>
   <globalConfigName>Bob Ballantyne</globalConfigName>
   <globalConfigEmail>bob.ballantyne@emc.com</globalConfigEmail>
   <createAccountBasedOnEmail>false</createAccountBasedOnEmail>
+  <useExistingAccountWithSameEmail>false</useExistingAccountWithSameEmail>
+  <showEntireCommitSummaryInChanges>false</showEntireCommitSummaryInChanges>
 </hudson.plugins.git.GitSCM_-DescriptorImpl>

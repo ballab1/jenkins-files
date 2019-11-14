@@ -1,0 +1,5 @@
+[user]
+	email = ballantyne.robert@gmail.com
+[filesystem "IcedTea|1.8.0_222|/dev/sda2"]
+	timestampResolution = 1001 milliseconds
+	minRacyThreshold = 0 nanoseconds

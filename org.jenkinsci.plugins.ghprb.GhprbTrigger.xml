@@ -1,10 +1,11 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<org.jenkinsci.plugins.ghprb.GhprbTrigger_-DescriptorImpl plugin="ghprb@1.36.2">
+<?xml version='1.1' encoding='UTF-8'?>
+<org.jenkinsci.plugins.ghprb.GhprbTrigger_-DescriptorImpl plugin="ghprb@1.42.0">
   <configVersion>1</configVersion>
   <whitelistPhrase>.*add\W+to\W+whitelist.*</whitelistPhrase>
   <okToTestPhrase>.*ok\W+to\W+test.*</okToTestPhrase>
   <retestPhrase>.*test\W+this\W+please.*</retestPhrase>
   <skipBuildPhrase>.*\[skip\W+ci\].*</skipBuildPhrase>
+  <blackListCommitAuthor></blackListCommitAuthor>
   <cron>H/5 * * * *</cron>
   <useComments>true</useComments>
   <useDetailedComments>true</useDetailedComments>

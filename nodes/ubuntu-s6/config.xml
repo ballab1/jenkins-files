@@ -1,0 +1,35 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<slave>
+  <name>ubuntu-s6</name>
+  <description></description>
+  <remoteFS>/home/jenkins.s3</remoteFS>
+  <numExecutors>3</numExecutors>
+  <mode>NORMAL</mode>
+  <retentionStrategy class="hudson.slaves.RetentionStrategy$Always"/>
+  <launcher class="hudson.plugins.sshslaves.SSHLauncher" plugin="ssh-slaves@1.30.2">
+    <host>ubuntu-s6</host>
+    <port>22</port>
+    <credentialsId>1a69cdbb-be20-4bde-b30a-87ef9b2db969</credentialsId>
+    <launchTimeoutSeconds>210</launchTimeoutSeconds>
+    <maxNumRetries>0</maxNumRetries>
+    <retryWaitTime>0</retryWaitTime>
+    <sshHostKeyVerificationStrategy class="hudson.plugins.sshslaves.verifiers.KnownHostsFileKeyVerificationStrategy"/>
+    <tcpNoDelay>true</tcpNoDelay>
+  </launcher>
+  <label>64bit jdk docker</label>
+  <nodeProperties>
+    <hudson.slaves.EnvironmentVariablesNodeProperty>
+      <envVars serialization="custom">
+        <unserializable-parents/>
+        <tree-map>
+          <default>
+            <comparator class="hudson.util.CaseInsensitiveComparator"/>
+          </default>
+          <int>1</int>
+          <string>ZOOKEEPER_HOSTS</string>
+          <string>ubuntu-s3:2181,ubuntu-s4:2181,ubuntu-s1:2181</string>
+        </tree-map>
+      </envVars>
+    </hudson.slaves.EnvironmentVariablesNodeProperty>
+  </nodeProperties>
+</slave>
