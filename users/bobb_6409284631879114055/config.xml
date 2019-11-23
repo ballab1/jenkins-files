@@ -1,0 +1,75 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<user>
+  <version>10</version>
+  <id>bobb</id>
+  <fullName>Bob Ballantyne</fullName>
+  <description>Main user</description>
+  <properties>
+    <jenkins.security.ApiTokenProperty>
+      <tokenStore>
+        <tokenList>
+          <jenkins.security.apitoken.ApiTokenStore_-HashedToken>
+            <uuid>1a0aff0e-1c6b-43ad-a866-0830755f8672</uuid>
+            <name>bobb</name>
+            <creationDate>2018-09-15 19:38:51.931 UTC</creationDate>
+            <value>
+              <version>11</version>
+              <hash>2de98ef19f6d199dba8f4642670f1667d7cebf3f7ed097a9b5384e3c6f1455b8</hash>
+            </value>
+          </jenkins.security.apitoken.ApiTokenStore_-HashedToken>
+        </tokenList>
+      </tokenStore>
+    </jenkins.security.ApiTokenProperty>
+    <com.cloudbees.plugins.credentials.UserCredentialsProvider_-UserCredentialsProperty plugin="credentials@2.1.19">
+      <domainCredentialsMap class="hudson.util.CopyOnWriteMap$Hash"/>
+    </com.cloudbees.plugins.credentials.UserCredentialsProvider_-UserCredentialsProperty>
+    <jenkins.security.LastGrantedAuthoritiesProperty>
+      <roles>
+        <string>authenticated</string>
+      </roles>
+      <timestamp>1487476042189</timestamp>
+    </jenkins.security.LastGrantedAuthoritiesProperty>
+    <hudson.model.MyViewsProperty>
+      <primaryViewName></primaryViewName>
+      <views>
+        <hudson.model.AllView>
+          <owner class="hudson.model.MyViewsProperty" reference="../../.."/>
+          <name>All</name>
+          <filterExecutors>false</filterExecutors>
+          <filterQueue>false</filterQueue>
+          <properties class="hudson.model.View$PropertyList"/>
+        </hudson.model.AllView>
+      </views>
+    </hudson.model.MyViewsProperty>
+    <hudson.model.PaneStatusProperties>
+      <collapsed/>
+    </hudson.model.PaneStatusProperties>
+    <hudson.security.HudsonPrivateSecurityRealm_-Details>
+      <passwordHash>#jbcrypt:$2a$10$GZ9gFf1TM3lgWKa.z9JudeAXvMgBqTnc6CC917PIyVcIPemVC2Gh6</passwordHash>
+    </hudson.security.HudsonPrivateSecurityRealm_-Details>
+    <org.jenkinsci.main.modules.cli.auth.ssh.UserPropertyImpl>
+      <authorizedKeys>ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDXw7j0Sf/mvheVNPM/JhOy1W+DGQpDflgF1yNsArWk6ONu84qnBNLqmTxxjSkP1NSF8enwYrxJfhq27tg2pYPVly+BcBEl0C8RiKqRydCdvkXG4yj7RRdNsnkDC6mBstV/bgrwYNMQ/Otnrl8pdKuOjNlnx7CDq/BWbLNUqwkFCu7hhr+0NGmLvnLebTkrEw0jIDtpIfOrTQenLjgFqN0IjvB3rP7kuw3EqFCimD+ucaXKadwOrc4CaQOR7TomfEk4gZ+ftiARdldmxz68H8j97RJhR8Uf5siX6t5vW00676O8uBjYDkla9SpoSa7KiyrU07y9Vh5YTXraq5X4iqnh bobb@ubuntu-s3</authorizedKeys>
+    </org.jenkinsci.main.modules.cli.auth.ssh.UserPropertyImpl>
+    <hudson.search.UserSearchProperty>
+      <insensitiveSearch>false</insensitiveSearch>
+    </hudson.search.UserSearchProperty>
+    <hudson.plugins.emailext.watching.EmailExtWatchAction_-UserProperty plugin="email-ext@2.66">
+      <triggers/>
+    </hudson.plugins.emailext.watching.EmailExtWatchAction_-UserProperty>
+    <org.jenkinsci.plugins.displayurlapi.user.PreferredProviderUserProperty plugin="display-url-api@2.3.1">
+      <providerId>default</providerId>
+    </org.jenkinsci.plugins.displayurlapi.user.PreferredProviderUserProperty>
+    <hudson.tasks.Mailer_-UserProperty plugin="mailer@1.23">
+      <emailAddress>bob.ballantyne@emc.com</emailAddress>
+    </hudson.tasks.Mailer_-UserProperty>
+    <io.jenkins.blueocean.autofavorite.user.FavoritingUserProperty plugin="blueocean-autofavorite@1.2.4">
+      <autofavoriteEnabled>true</autofavoriteEnabled>
+    </io.jenkins.blueocean.autofavorite.user.FavoritingUserProperty>
+    <hudson.plugins.favorite.user.FavoriteUserProperty plugin="favorite@2.3.2">
+      <data class="concurrent-hash-map"/>
+    </hudson.plugins.favorite.user.FavoriteUserProperty>
+    <jenkins.security.seed.UserSeedProperty>
+      <seed>d5400c1ff1765570</seed>
+    </jenkins.security.seed.UserSeedProperty>
+  </properties>
+</user>

@@ -6,6 +6,6 @@
     <username>root</username>
     <password>{AQAAABAAAAAQN7Wg+8drqqtVdpiwKT9pRH5sLSplke9G4nJBrOpFcH8=}</password>
     <validationQuery>select 1;</validationQuery>
-    <properties>serverTimezone=UTC</properties>
+    <properties></properties>
   </database>
 </org.jenkinsci.plugins.database.GlobalDatabaseConfiguration>

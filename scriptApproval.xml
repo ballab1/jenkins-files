@@ -1,15 +1,18 @@
 <?xml version='1.1' encoding='UTF-8'?>
-<scriptApproval plugin="script-security@1.66">
+<scriptApproval plugin="script-security@1.54">
   <approvedScriptHashes>
     <string>017d0db438428731cd600b6ebda805065433520f</string>
   </approvedScriptHashes>
-  <approvedSignatures>
-    <string>method groovy.lang.GroovyObject invokeMethod java.lang.String java.lang.Object</string>
-    <string>staticMethod jenkins.model.Jenkins getInstance</string>
-  </approvedSignatures>
+  <approvedSignatures/>
   <aclApprovedSignatures/>
   <approvedClasspathEntries/>
   <pendingScripts/>
-  <pendingSignatures/>
+  <pendingSignatures>
+    <pendingSignature>
+      <context/>
+      <signature>staticMethod jenkins.model.Jenkins getInstance</signature>
+      <dangerous>true</dangerous>
+    </pendingSignature>
+  </pendingSignatures>
   <pendingClasspathEntries/>
 </scriptApproval>
