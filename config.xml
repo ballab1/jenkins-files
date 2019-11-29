@@ -213,6 +213,7 @@
         <string>Update enterprise directories</string>
         <string>Update kafka-deploy directories</string>
         <string>Update nagios-deploy directories</string>
+        <string>Update ssh directories</string>
         <string>Update tmux directories</string>
         <string>Update utilities directories</string>
         <string>Update work-stuff directories</string>
