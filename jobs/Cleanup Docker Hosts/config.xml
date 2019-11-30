@@ -12,13 +12,6 @@
   <description></description>
   <keepDependencies>false</keepDependencies>
   <properties>
-    <org.jenkinsci.plugins.workflow.job.properties.PipelineTriggersJobProperty>
-      <triggers>
-        <hudson.triggers.TimerTrigger>
-          <spec>H 3 * * *</spec>
-        </hudson.triggers.TimerTrigger>
-      </triggers>
-    </org.jenkinsci.plugins.workflow.job.properties.PipelineTriggersJobProperty>
     <hudson.plugins.jira.JiraProjectProperty plugin="jira@3.0.11"/>
     <jenkins.model.BuildDiscarderProperty>
       <strategy class="hudson.tasks.LogRotator">
@@ -39,6 +32,13 @@
       <autoRebuild>false</autoRebuild>
       <rebuildDisabled>false</rebuildDisabled>
     </com.sonyericsson.rebuild.RebuildSettings>
+    <org.jenkinsci.plugins.workflow.job.properties.PipelineTriggersJobProperty>
+      <triggers>
+        <hudson.triggers.TimerTrigger>
+          <spec>H 3 * * *</spec>
+        </hudson.triggers.TimerTrigger>
+      </triggers>
+    </org.jenkinsci.plugins.workflow.job.properties.PipelineTriggersJobProperty>
   </properties>
   <definition class="org.jenkinsci.plugins.workflow.cps.CpsScmFlowDefinition" plugin="workflow-cps@2.76">
     <scm class="hudson.plugins.git.GitSCM" plugin="git@4.0.0">
@@ -56,16 +56,7 @@
       </branches>
       <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
       <submoduleCfg class="list"/>
-      <extensions>
-        <hudson.plugins.git.extensions.impl.SubmoduleOption>
-          <disableSubmodules>false</disableSubmodules>
-          <recursiveSubmodules>true</recursiveSubmodules>
-          <trackingSubmodules>false</trackingSubmodules>
-          <reference></reference>
-          <parentCredentials>false</parentCredentials>
-          <shallow>false</shallow>
-        </hudson.plugins.git.extensions.impl.SubmoduleOption>
-      </extensions>
+      <extensions/>
     </scm>
     <scriptPath>CleanDockerHost.jenkinsfile</scriptPath>
     <lightweight>false</lightweight>
