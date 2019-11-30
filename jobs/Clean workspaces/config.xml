@@ -12,13 +12,6 @@
   <description></description>
   <keepDependencies>false</keepDependencies>
   <properties>
-    <org.jenkinsci.plugins.workflow.job.properties.PipelineTriggersJobProperty>
-      <triggers>
-        <hudson.triggers.TimerTrigger>
-          <spec>H 5 * * *</spec>
-        </hudson.triggers.TimerTrigger>
-      </triggers>
-    </org.jenkinsci.plugins.workflow.job.properties.PipelineTriggersJobProperty>
     <hudson.plugins.jira.JiraProjectProperty plugin="jira@3.0.11"/>
     <com.coravy.hudson.plugins.github.GithubProjectProperty plugin="github@1.29.5">
       <projectUrl>https://github.com/ballab1/jenkins-pipelines.git/</projectUrl>
@@ -31,6 +24,13 @@
       <autoRebuild>false</autoRebuild>
       <rebuildDisabled>false</rebuildDisabled>
     </com.sonyericsson.rebuild.RebuildSettings>
+    <org.jenkinsci.plugins.workflow.job.properties.PipelineTriggersJobProperty>
+      <triggers>
+        <hudson.triggers.TimerTrigger>
+          <spec>H 5 * * *</spec>
+        </hudson.triggers.TimerTrigger>
+      </triggers>
+    </org.jenkinsci.plugins.workflow.job.properties.PipelineTriggersJobProperty>
   </properties>
   <definition class="org.jenkinsci.plugins.workflow.cps.CpsScmFlowDefinition" plugin="workflow-cps@2.76">
     <scm class="hudson.plugins.git.GitSCM" plugin="git@4.0.0">
@@ -48,16 +48,7 @@
       </branches>
       <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
       <submoduleCfg class="list"/>
-      <extensions>
-        <hudson.plugins.git.extensions.impl.SubmoduleOption>
-          <disableSubmodules>false</disableSubmodules>
-          <recursiveSubmodules>true</recursiveSubmodules>
-          <trackingSubmodules>false</trackingSubmodules>
-          <reference></reference>
-          <parentCredentials>false</parentCredentials>
-          <shallow>false</shallow>
-        </hudson.plugins.git.extensions.impl.SubmoduleOption>
-      </extensions>
+      <extensions/>
     </scm>
     <scriptPath>CleanHosts.jenkinsfile</scriptPath>
     <lightweight>false</lightweight>
