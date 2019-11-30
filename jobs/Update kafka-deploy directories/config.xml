@@ -18,7 +18,6 @@
   <description></description>
   <keepDependencies>false</keepDependencies>
   <properties>
-    <hudson.plugins.jira.JiraProjectProperty plugin="jira@3.0.11"/>
     <jenkins.model.BuildDiscarderProperty>
       <strategy class="hudson.tasks.LogRotator">
         <daysToKeep>-1</daysToKeep>
@@ -29,24 +28,15 @@
     </jenkins.model.BuildDiscarderProperty>
     <org.jenkinsci.plugins.workflow.job.properties.DisableConcurrentBuildsJobProperty/>
     <org.jenkinsci.plugins.workflow.job.properties.DisableResumeJobProperty/>
-    <org.bstick12.jenkinsci.plugins.leastload.LeastLoadDisabledProperty plugin="leastload@2.0.1">
-      <leastLoadDisabled>false</leastLoadDisabled>
-    </org.bstick12.jenkinsci.plugins.leastload.LeastLoadDisabledProperty>
-    <com.sonyericsson.rebuild.RebuildSettings plugin="rebuild@1.31">
-      <autoRebuild>false</autoRebuild>
-      <rebuildDisabled>false</rebuildDisabled>
-    </com.sonyericsson.rebuild.RebuildSettings>
     <org.jenkinsci.plugins.workflow.job.properties.PipelineTriggersJobProperty>
       <triggers>
         <org.jenkinsci.plugins.gwt.GenericTrigger plugin="generic-webhook-trigger@1.65">
           <spec></spec>
           <genericVariables>
             <org.jenkinsci.plugins.gwt.GenericVariable>
-              <expressionType>JSONPath</expressionType>
               <key>reponame</key>
               <value>$.repository.name</value>
               <regexpFilter>-(deploy-s1|deploy-s3|deploy-s4|deploy|stuff)$</regexpFilter>
-              <defaultValue>kafka</defaultValue>
             </org.jenkinsci.plugins.gwt.GenericVariable>
           </genericVariables>
           <regexpFilterText>$reponame</regexpFilterText>
@@ -54,7 +44,6 @@
           <printPostContent>false</printPostContent>
           <printContributedVariables>false</printContributedVariables>
           <causeString>Triggered by a change to $reponame</causeString>
-          <token></token>
           <silentResponse>false</silentResponse>
         </org.jenkinsci.plugins.gwt.GenericTrigger>
       </triggers>
