@@ -1,8 +1,8 @@
 <?xml version='1.1' encoding='UTF-8'?>
-<flow-definition plugin="workflow-job@2.35">
+<flow-definition plugin="workflow-job@2.36">
   <actions>
-    <org.jenkinsci.plugins.pipeline.modeldefinition.actions.DeclarativeJobAction plugin="pipeline-model-definition@1.3.9"/>
-    <org.jenkinsci.plugins.pipeline.modeldefinition.actions.DeclarativeJobPropertyTrackerAction plugin="pipeline-model-definition@1.3.9">
+    <org.jenkinsci.plugins.pipeline.modeldefinition.actions.DeclarativeJobAction plugin="pipeline-model-definition@1.4.0"/>
+    <org.jenkinsci.plugins.pipeline.modeldefinition.actions.DeclarativeJobPropertyTrackerAction plugin="pipeline-model-definition@1.4.0">
       <jobProperties>
         <string>org.jenkinsci.plugins.workflow.job.properties.DisableConcurrentBuildsJobProperty</string>
         <string>jenkins.model.BuildDiscarderProperty</string>
@@ -18,6 +18,7 @@
   <description></description>
   <keepDependencies>false</keepDependencies>
   <properties>
+    <hudson.plugins.jira.JiraProjectProperty plugin="jira@3.0.11"/>
     <jenkins.model.BuildDiscarderProperty>
       <strategy class="hudson.tasks.LogRotator">
         <daysToKeep>-1</daysToKeep>
@@ -28,12 +29,20 @@
     </jenkins.model.BuildDiscarderProperty>
     <org.jenkinsci.plugins.workflow.job.properties.DisableConcurrentBuildsJobProperty/>
     <org.jenkinsci.plugins.workflow.job.properties.DisableResumeJobProperty/>
+    <org.bstick12.jenkinsci.plugins.leastload.LeastLoadDisabledProperty plugin="leastload@2.0.1">
+      <leastLoadDisabled>false</leastLoadDisabled>
+    </org.bstick12.jenkinsci.plugins.leastload.LeastLoadDisabledProperty>
+    <com.sonyericsson.rebuild.RebuildSettings plugin="rebuild@1.31">
+      <autoRebuild>false</autoRebuild>
+      <rebuildDisabled>false</rebuildDisabled>
+    </com.sonyericsson.rebuild.RebuildSettings>
     <org.jenkinsci.plugins.workflow.job.properties.PipelineTriggersJobProperty>
       <triggers>
-        <org.jenkinsci.plugins.gwt.GenericTrigger plugin="generic-webhook-trigger@1.57">
+        <org.jenkinsci.plugins.gwt.GenericTrigger plugin="generic-webhook-trigger@1.65">
           <spec></spec>
           <genericVariables>
             <org.jenkinsci.plugins.gwt.GenericVariable>
+              <expressionType>JSONPath</expressionType>
               <key>reponame</key>
               <value>$.repository.name</value>
               <regexpFilter>-(deploy-s1|deploy-s3|deploy-s4|deploy|stuff)$</regexpFilter>
@@ -45,13 +54,14 @@
           <printPostContent>false</printPostContent>
           <printContributedVariables>false</printContributedVariables>
           <causeString>Triggered by a change to $reponame</causeString>
+          <token></token>
           <silentResponse>false</silentResponse>
         </org.jenkinsci.plugins.gwt.GenericTrigger>
       </triggers>
     </org.jenkinsci.plugins.workflow.job.properties.PipelineTriggersJobProperty>
   </properties>
-  <definition class="org.jenkinsci.plugins.workflow.cps.CpsScmFlowDefinition" plugin="workflow-cps@2.74">
-    <scm class="hudson.plugins.git.GitSCM" plugin="git@3.12.1">
+  <definition class="org.jenkinsci.plugins.workflow.cps.CpsScmFlowDefinition" plugin="workflow-cps@2.76">
+    <scm class="hudson.plugins.git.GitSCM" plugin="git@4.0.0">
       <configVersion>2</configVersion>
       <userRemoteConfigs>
         <hudson.plugins.git.UserRemoteConfig>
@@ -66,15 +76,7 @@
       </branches>
       <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
       <submoduleCfg class="list"/>
-      <extensions>
-        <hudson.plugins.git.extensions.impl.SubmoduleOption>
-          <disableSubmodules>false</disableSubmodules>
-          <recursiveSubmodules>true</recursiveSubmodules>
-          <trackingSubmodules>false</trackingSubmodules>
-          <reference></reference>
-          <parentCredentials>false</parentCredentials>
-        </hudson.plugins.git.extensions.impl.SubmoduleOption>
-      </extensions>
+      <extensions/>
     </scm>
     <scriptPath>UpdateRepoDirs.jenkinsfile</scriptPath>
     <lightweight>true</lightweight>
