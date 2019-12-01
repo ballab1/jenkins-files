@@ -160,6 +160,7 @@
         <string>Docker Registry Contents</string>
         <string>Docker Slave Test</string>
         <string>Kickstart SMEE</string>
+        <string>Organize photo uploads</string>
         <string>Uptime</string>
       </jobNames>
       <jobFilters/>
