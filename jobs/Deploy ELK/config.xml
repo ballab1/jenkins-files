@@ -12,15 +12,39 @@
   <description></description>
   <keepDependencies>false</keepDependencies>
   <properties>
-    <hudson.plugins.jira.JiraProjectProperty plugin="jira@3.0.11"/>
+    <hudson.model.ParametersDefinitionProperty>
+      <parameterDefinitions>
+        <hudson.model.StringParameterDefinition>
+          <name>CONTAINER_TAG</name>
+          <description>version of ELK stack to use</description>
+          <defaultValue>7.4.0</defaultValue>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>SLAVE</name>
+          <description>label of slave on which ELK stack should run</description>
+          <defaultValue>ubuntu-s6</defaultValue>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>TARGET_DIR</name>
+          <description>target directory for config files</description>
+          <defaultValue>/home/bobb/elk-deploy</defaultValue>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+      </parameterDefinitions>
+    </hudson.model.ParametersDefinitionProperty>
     <jenkins.model.BuildDiscarderProperty>
       <strategy class="hudson.tasks.LogRotator">
-        <daysToKeep>30</daysToKeep>
-        <numToKeep>30</numToKeep>
-        <artifactDaysToKeep>7</artifactDaysToKeep>
-        <artifactNumToKeep>7</artifactNumToKeep>
+        <daysToKeep>-1</daysToKeep>
+        <numToKeep>20</numToKeep>
+        <artifactDaysToKeep>-1</artifactDaysToKeep>
+        <artifactNumToKeep>-1</artifactNumToKeep>
       </strategy>
     </jenkins.model.BuildDiscarderProperty>
+    <org.jenkinsci.plugins.workflow.job.properties.DisableConcurrentBuildsJobProperty/>
+    <org.jenkinsci.plugins.workflow.job.properties.DisableResumeJobProperty/>
+    <hudson.plugins.jira.JiraProjectProperty plugin="jira@3.0.11"/>
     <com.coravy.hudson.plugins.github.GithubProjectProperty plugin="github@1.29.5">
       <projectUrl>https://github.com/ballab1/jenkins-pipelines.git/</projectUrl>
       <displayName></displayName>
@@ -32,28 +56,6 @@
       <autoRebuild>false</autoRebuild>
       <rebuildDisabled>false</rebuildDisabled>
     </com.sonyericsson.rebuild.RebuildSettings>
-    <hudson.model.ParametersDefinitionProperty>
-      <parameterDefinitions>
-        <hudson.model.StringParameterDefinition>
-          <name>CONTAINER_TAG</name>
-          <description></description>
-          <defaultValue>7.3.0</defaultValue>
-          <trim>false</trim>
-        </hudson.model.StringParameterDefinition>
-        <hudson.model.StringParameterDefinition>
-          <name>SLAVE</name>
-          <description></description>
-          <defaultValue>ubuntu-s6</defaultValue>
-          <trim>false</trim>
-        </hudson.model.StringParameterDefinition>
-        <hudson.model.StringParameterDefinition>
-          <name>TARGET_DIR</name>
-          <description></description>
-          <defaultValue>/home/bobb/elk-deploy</defaultValue>
-          <trim>false</trim>
-        </hudson.model.StringParameterDefinition>
-      </parameterDefinitions>
-    </hudson.model.ParametersDefinitionProperty>
   </properties>
   <definition class="org.jenkinsci.plugins.workflow.cps.CpsScmFlowDefinition" plugin="workflow-cps@2.76">
     <scm class="hudson.plugins.git.GitSCM" plugin="git@4.0.0">
