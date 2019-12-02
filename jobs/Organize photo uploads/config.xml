@@ -3,7 +3,11 @@
   <actions>
     <org.jenkinsci.plugins.pipeline.modeldefinition.actions.DeclarativeJobAction plugin="pipeline-model-definition@1.4.0"/>
     <org.jenkinsci.plugins.pipeline.modeldefinition.actions.DeclarativeJobPropertyTrackerAction plugin="pipeline-model-definition@1.4.0">
-      <jobProperties/>
+      <jobProperties>
+        <string>org.jenkinsci.plugins.workflow.job.properties.DisableConcurrentBuildsJobProperty</string>
+        <string>jenkins.model.BuildDiscarderProperty</string>
+        <string>org.jenkinsci.plugins.workflow.job.properties.DisableResumeJobProperty</string>
+      </jobProperties>
       <triggers/>
       <parameters/>
       <options/>
