@@ -88,7 +88,6 @@
       <capOnlyOnAlivePods>false</capOnlyOnAlivePods>
       <directConnection>false</directConnection>
       <jenkinsUrl>https://10.1.3.6/jenkins</jenkinsUrl>
-      <credentialsId>11ac7915-19d5-4e38-9e25-e4f634ea8b9f</credentialsId>
       <containerCap>10</containerCap>
       <retentionTimeout>5</retentionTimeout>
       <connectTimeout>5</connectTimeout>
@@ -254,7 +253,7 @@
           <string>JNLP_PROTOCOL_OPTS</string>
           <string>-Dorg.jenkinsci.remoting.engine.JnlpProtocol3.disabled=true</string>
           <string>KAFKA_BOOTSTRAP_SERVERS</string>
-          <string>ubuntu-s3:9092,ubuntu-s4:9092,ubuntu-s1:9092</string>
+          <string>ubuntu-s3:9092,ubuntu-s4:9092</string>
         </tree-map>
       </envVars>
     </hudson.slaves.EnvironmentVariablesNodeProperty>
