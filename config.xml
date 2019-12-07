@@ -253,7 +253,7 @@
           <string>JNLP_PROTOCOL_OPTS</string>
           <string>-Dorg.jenkinsci.remoting.engine.JnlpProtocol3.disabled=true</string>
           <string>KAFKA_BOOTSTRAP_SERVERS</string>
-          <string>ubuntu-s3:9092,ubuntu-s4:9092</string>
+          <string>ubuntu-s3:2181,ubuntu-s4:2181</string>
         </tree-map>
       </envVars>
     </hudson.slaves.EnvironmentVariablesNodeProperty>
