@@ -82,12 +82,12 @@
       <name>kubernetes</name>
       <defaultsProviderTemplate></defaultsProviderTemplate>
       <templates/>
-      <serverUrl>https://10.1.3.14:16443</serverUrl>
+      <serverUrl>https://ubuntu-s6.home:16443</serverUrl>
       <skipTlsVerify>true</skipTlsVerify>
       <addMasterProxyEnvVars>false</addMasterProxyEnvVars>
       <capOnlyOnAlivePods>false</capOnlyOnAlivePods>
       <directConnection>false</directConnection>
-      <jenkinsUrl>https://10.1.3.6/jenkins</jenkinsUrl>
+      <jenkinsUrl>https://ubuntu-s3.home/jenkins</jenkinsUrl>
       <containerCap>10</containerCap>
       <retentionTimeout>5</retentionTimeout>
       <connectTimeout>5</connectTimeout>
