@@ -82,7 +82,7 @@
       <name>kubernetes</name>
       <defaultsProviderTemplate></defaultsProviderTemplate>
       <templates/>
-      <serverUrl>https://ubuntu-s6.home:16443</serverUrl>
+      <serverUrl>https://s6.ubuntu.home:16443</serverUrl>
       <skipTlsVerify>true</skipTlsVerify>
       <addMasterProxyEnvVars>false</addMasterProxyEnvVars>
       <capOnlyOnAlivePods>false</capOnlyOnAlivePods>
