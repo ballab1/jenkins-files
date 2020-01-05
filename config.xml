@@ -87,7 +87,7 @@
       <addMasterProxyEnvVars>false</addMasterProxyEnvVars>
       <capOnlyOnAlivePods>false</capOnlyOnAlivePods>
       <directConnection>false</directConnection>
-      <jenkinsUrl>https://ubuntu-s3.home/jenkins</jenkinsUrl>
+      <jenkinsUrl>https://s3.ubuntu.home/jenkins</jenkinsUrl>
       <containerCap>10</containerCap>
       <retentionTimeout>5</retentionTimeout>
       <connectTimeout>5</connectTimeout>
