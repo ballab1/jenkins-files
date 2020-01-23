@@ -27,6 +27,16 @@
   <keepDependencies>false</keepDependencies>
   <properties>
     <hudson.plugins.jira.JiraProjectProperty plugin="jira@3.0.11"/>
+    <jenkins.model.BuildDiscarderProperty>
+      <strategy class="hudson.tasks.LogRotator">
+        <daysToKeep>-1</daysToKeep>
+        <numToKeep>20</numToKeep>
+        <artifactDaysToKeep>-1</artifactDaysToKeep>
+        <artifactNumToKeep>-1</artifactNumToKeep>
+      </strategy>
+    </jenkins.model.BuildDiscarderProperty>
+    <org.jenkinsci.plugins.workflow.job.properties.DisableConcurrentBuildsJobProperty/>
+    <org.jenkinsci.plugins.workflow.job.properties.DisableResumeJobProperty/>
     <com.coravy.hudson.plugins.github.GithubProjectProperty plugin="github@1.29.5">
       <projectUrl>https://github.com/ballab1/jenkins-pipelines.git/</projectUrl>
       <displayName></displayName>
@@ -43,31 +53,22 @@
         <hudson.model.StringParameterDefinition>
           <name>reponame</name>
           <description></description>
-          <defaultValue>bin</defaultValue>
+          <defaultValue>.bin</defaultValue>
           <trim>false</trim>
         </hudson.model.StringParameterDefinition>
       </parameterDefinitions>
     </hudson.model.ParametersDefinitionProperty>
-    <jenkins.model.BuildDiscarderProperty>
-      <strategy class="hudson.tasks.LogRotator">
-        <daysToKeep>-1</daysToKeep>
-        <numToKeep>20</numToKeep>
-        <artifactDaysToKeep>-1</artifactDaysToKeep>
-        <artifactNumToKeep>-1</artifactNumToKeep>
-      </strategy>
-    </jenkins.model.BuildDiscarderProperty>
-    <org.jenkinsci.plugins.workflow.job.properties.DisableConcurrentBuildsJobProperty/>
-    <org.jenkinsci.plugins.workflow.job.properties.DisableResumeJobProperty/>
     <org.jenkinsci.plugins.workflow.job.properties.PipelineTriggersJobProperty>
       <triggers>
         <org.jenkinsci.plugins.gwt.GenericTrigger plugin="generic-webhook-trigger@1.66">
           <spec></spec>
           <genericVariables>
             <org.jenkinsci.plugins.gwt.GenericVariable>
+              <expressionType>JSONPath</expressionType>
               <key>reponame</key>
-              <value>$.repository.name</value>
+              <value>.$.repository.name</value>
               <regexpFilter>-(deploy-s1|deploy-s3|deploy-s4|deploy|stuff)$</regexpFilter>
-              <defaultValue>bin</defaultValue>
+              <defaultValue>.bin</defaultValue>
             </org.jenkinsci.plugins.gwt.GenericVariable>
           </genericVariables>
           <regexpFilterText>$reponame</regexpFilterText>
@@ -75,6 +76,7 @@
           <printPostContent>false</printPostContent>
           <printContributedVariables>false</printContributedVariables>
           <causeString>Triggered by a change to $reponame</causeString>
+          <token></token>
           <silentResponse>false</silentResponse>
         </org.jenkinsci.plugins.gwt.GenericTrigger>
       </triggers>
