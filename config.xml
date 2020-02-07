@@ -40,7 +40,7 @@
             <idleMinutes>10</idleMinutes>
           </retentionStrategy>
           <dockerTemplateBase>
-            <image>ubuntu-s2:5000/thirdparty/jenkinsci/slave:3.16-1-alpine</image>
+            <image>ubuntu-s2.home:5000/thirdparty/jenkinsci/slave:3.16-1-alpine</image>
             <pullCredentialsId></pullCredentialsId>
             <dockerCommand></dockerCommand>
             <hostname></hostname>
