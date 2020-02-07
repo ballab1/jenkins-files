@@ -85,7 +85,7 @@
         <org.csanchez.jenkins.plugins.kubernetes.PodTemplate>
           <inheritFrom></inheritFrom>
           <name>jnlp slave</name>
-          <namespace></namespace>
+          <namespace>jenkins</namespace>
           <privileged>false</privileged>
           <supplementalGroups></supplementalGroups>
           <capOnlyOnAlivePods>false</capOnlyOnAlivePods>
@@ -105,7 +105,7 @@
           <containers>
             <org.csanchez.jenkins.plugins.kubernetes.ContainerTemplate>
               <name></name>
-              <image>http://ununtu-s2:5000/jenkinsnci/jnlp-slave</image>
+              <image>http://ununtu-s2.home:5000/thirdparty/jnlp-slavethirdparty/jnlp-slave:alpine</image>
               <privileged>false</privileged>
               <alwaysPullImage>false</alwaysPullImage>
               <workingDir>/home/jenkins/agent</workingDir>
@@ -139,7 +139,7 @@
       </templates>
       <serverUrl>https://s5.ubuntu.home:16443</serverUrl>
       <skipTlsVerify>true</skipTlsVerify>
-      <addMasterProxyEnvVars>false</addMasterProxyEnvVars>
+      <addMasterProxyEnvVars>true</addMasterProxyEnvVars>
       <capOnlyOnAlivePods>false</capOnlyOnAlivePods>
       <namespace>jenkins</namespace>
       <directConnection>false</directConnection>
