@@ -87,6 +87,7 @@
           <name>jnlp slave</name>
           <namespace></namespace>
           <privileged>false</privileged>
+          <supplementalGroups></supplementalGroups>
           <capOnlyOnAlivePods>false</capOnlyOnAlivePods>
           <alwaysPullImage>false</alwaysPullImage>
           <instanceCap>2147483647</instanceCap>
