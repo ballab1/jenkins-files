@@ -105,7 +105,7 @@
           <containers>
             <org.csanchez.jenkins.plugins.kubernetes.ContainerTemplate>
               <name></name>
-              <image>http://ununtu-s2.home:5000/thirdparty/jnlp-slavethirdparty/jnlp-slave:alpine</image>
+              <image>ununtu-s2.home:5000/thirdparty/jnlp-slave:alpine</image>
               <privileged>false</privileged>
               <alwaysPullImage>false</alwaysPullImage>
               <workingDir>/home/jenkins/agent</workingDir>
