@@ -32,7 +32,7 @@
       <rebuildDisabled>false</rebuildDisabled>
     </com.sonyericsson.rebuild.RebuildSettings>
   </properties>
-  <definition class="org.jenkinsci.plugins.workflow.cps.CpsScmFlowDefinition" plugin="workflow-cps@2.78">
+  <definition class="org.jenkinsci.plugins.workflow.cps.CpsScmFlowDefinition" plugin="workflow-cps@2.79">
     <scm class="hudson.plugins.git.GitSCM" plugin="git@4.1.1">
       <configVersion>2</configVersion>
       <userRemoteConfigs>
@@ -54,5 +54,5 @@
     <lightweight>false</lightweight>
   </definition>
   <triggers/>
-  <disabled>true</disabled>
+  <disabled>false</disabled>
 </flow-definition>
