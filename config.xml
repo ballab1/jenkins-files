@@ -78,7 +78,7 @@
         <disabledByChoice>false</disabledByChoice>
       </disabled>
     </com.nirima.jenkins.plugins.docker.DockerCloud>
-    <org.csanchez.jenkins.plugins.kubernetes.KubernetesCloud plugin="kubernetes@1.23.3">
+    <org.csanchez.jenkins.plugins.kubernetes.KubernetesCloud plugin="kubernetes@1.24.1">
       <name>kubernetes</name>
       <defaultsProviderTemplate></defaultsProviderTemplate>
       <templates>
