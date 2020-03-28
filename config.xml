@@ -78,7 +78,7 @@
         <disabledByChoice>false</disabledByChoice>
       </disabled>
     </com.nirima.jenkins.plugins.docker.DockerCloud>
-    <org.csanchez.jenkins.plugins.kubernetes.KubernetesCloud plugin="kubernetes@1.24.1">
+    <org.csanchez.jenkins.plugins.kubernetes.KubernetesCloud plugin="kubernetes@1.25.1">
       <name>kubernetes</name>
       <defaultsProviderTemplate></defaultsProviderTemplate>
       <templates>
@@ -142,6 +142,7 @@
       <addMasterProxyEnvVars>true</addMasterProxyEnvVars>
       <capOnlyOnAlivePods>false</capOnlyOnAlivePods>
       <namespace>jenkins</namespace>
+      <webSocket>false</webSocket>
       <directConnection>false</directConnection>
       <jenkinsUrl>https://s3.ubuntu.home/jenkins</jenkinsUrl>
       <credentialsId>6fb4f705-0076-47ed-8651-64a7c9801d34</credentialsId>
