@@ -1,8 +1,7 @@
-<?xml version='1.1' encoding='UTF-8'?>
-<flow-definition plugin="workflow-job@2.36">
+<?xml version="1.1" encoding="UTF-8" standalone="no"?><flow-definition plugin="workflow-job@2.38">
   <actions>
-    <org.jenkinsci.plugins.pipeline.modeldefinition.actions.DeclarativeJobAction plugin="pipeline-model-definition@1.5.0"/>
-    <org.jenkinsci.plugins.pipeline.modeldefinition.actions.DeclarativeJobPropertyTrackerAction plugin="pipeline-model-definition@1.5.0">
+    <org.jenkinsci.plugins.pipeline.modeldefinition.actions.DeclarativeJobAction plugin="pipeline-model-definition@1.6.0"/>
+    <org.jenkinsci.plugins.pipeline.modeldefinition.actions.DeclarativeJobPropertyTrackerAction plugin="pipeline-model-definition@1.6.0">
       <jobProperties>
         <string>org.jenkinsci.plugins.workflow.job.properties.DisableConcurrentBuildsJobProperty</string>
         <string>jenkins.model.BuildDiscarderProperty</string>
@@ -16,9 +15,10 @@
       <options/>
     </org.jenkinsci.plugins.pipeline.modeldefinition.actions.DeclarativeJobPropertyTrackerAction>
   </actions>
-  <description></description>
+  <description/>
   <keepDependencies>false</keepDependencies>
   <properties>
+    <hudson.plugins.jira.JiraProjectProperty plugin="jira@3.0.14"/>
     <jenkins.model.BuildDiscarderProperty>
       <strategy class="hudson.tasks.LogRotator">
         <daysToKeep>-1</daysToKeep>
@@ -29,10 +29,9 @@
     </jenkins.model.BuildDiscarderProperty>
     <org.jenkinsci.plugins.workflow.job.properties.DisableConcurrentBuildsJobProperty/>
     <org.jenkinsci.plugins.workflow.job.properties.DisableResumeJobProperty/>
-    <hudson.plugins.jira.JiraProjectProperty plugin="jira@3.0.11"/>
     <com.coravy.hudson.plugins.github.GithubProjectProperty plugin="github@1.29.5">
       <projectUrl>https://github.com/ballab1/jenkins-pipelines/</projectUrl>
-      <displayName></displayName>
+      <displayName/>
     </com.coravy.hudson.plugins.github.GithubProjectProperty>
     <org.bstick12.jenkinsci.plugins.leastload.LeastLoadDisabledProperty plugin="leastload@2.0.1">
       <leastLoadDisabled>false</leastLoadDisabled>
@@ -45,21 +44,25 @@
       <parameterDefinitions>
         <hudson.model.StringParameterDefinition>
           <name>SLAVE</name>
-          <description></description>
-          <defaultValue>ubuntu-s4</defaultValue>
+          <description/>
+          <defaultValue>ubuntu-s7</defaultValue>
           <trim>false</trim>
         </hudson.model.StringParameterDefinition>
         <hudson.model.TextParameterDefinition>
           <name>DIRECTORIES</name>
           <description>directories location to scan</description>
-          <defaultValue>/mnt/Synology</defaultValue>
+          <defaultValue>/mnt/WDMyCloud/Guest
+/mnt/WDMyCloud/Public
+/mnt/WDMyCloud/Seagate_Expansion_Drive
+</defaultValue>
           <trim>false</trim>
         </hudson.model.TextParameterDefinition>
       </parameterDefinitions>
     </hudson.model.ParametersDefinitionProperty>
+    
   </properties>
-  <definition class="org.jenkinsci.plugins.workflow.cps.CpsScmFlowDefinition" plugin="workflow-cps@2.78">
-    <scm class="hudson.plugins.git.GitSCM" plugin="git@4.0.0">
+  <definition class="org.jenkinsci.plugins.workflow.cps.CpsScmFlowDefinition" plugin="workflow-cps@2.80">
+    <scm class="hudson.plugins.git.GitSCM" plugin="git@4.2.2">
       <configVersion>2</configVersion>
       <userRemoteConfigs>
         <hudson.plugins.git.UserRemoteConfig>
@@ -80,7 +83,7 @@
           <disableSubmodules>false</disableSubmodules>
           <recursiveSubmodules>true</recursiveSubmodules>
           <trackingSubmodules>false</trackingSubmodules>
-          <reference></reference>
+          <reference/>
           <parentCredentials>false</parentCredentials>
           <shallow>false</shallow>
         </hudson.plugins.git.extensions.impl.SubmoduleOption>
