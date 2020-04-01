@@ -40,25 +40,23 @@
       <autoRebuild>false</autoRebuild>
       <rebuildDisabled>false</rebuildDisabled>
     </com.sonyericsson.rebuild.RebuildSettings>
+    
     <hudson.model.ParametersDefinitionProperty>
       <parameterDefinitions>
         <hudson.model.StringParameterDefinition>
           <name>SLAVE</name>
-          <description>slave to use for scan</description>
+          <description/>
           <defaultValue>ubuntu-s7</defaultValue>
           <trim>false</trim>
         </hudson.model.StringParameterDefinition>
         <hudson.model.TextParameterDefinition>
           <name>DIRECTORIES</name>
           <description>directories location to scan</description>
-          <defaultValue>/mnt/WDMyCloud/Guest
-/mnt/WDMyCloud/Public
-/mnt/WDMyCloud/Seagate_Expansion_Drive</defaultValue>
+          <defaultValue>/mnt/WDMyCloud/Guest /mnt/WDMyCloud/Public /mnt/WDMyCloud/Seagate_Expansion_Drive</defaultValue>
           <trim>false</trim>
         </hudson.model.TextParameterDefinition>
       </parameterDefinitions>
     </hudson.model.ParametersDefinitionProperty>
-    
   </properties>
   <definition class="org.jenkinsci.plugins.workflow.cps.CpsScmFlowDefinition" plugin="workflow-cps@2.80">
     <scm class="hudson.plugins.git.GitSCM" plugin="git@4.2.2">
