@@ -44,6 +44,8 @@
             <pullCredentialsId></pullCredentialsId>
             <dockerCommand></dockerCommand>
             <hostname></hostname>
+            <user></user>
+            <extraGroups class="empty-list"/>
             <dnsHosts/>
             <network></network>
             <volumes/>
@@ -141,7 +143,6 @@
       <skipTlsVerify>true</skipTlsVerify>
       <addMasterProxyEnvVars>true</addMasterProxyEnvVars>
       <capOnlyOnAlivePods>false</capOnlyOnAlivePods>
-      <namespace>jenkins</namespace>
       <webSocket>false</webSocket>
       <directConnection>false</directConnection>
       <jenkinsUrl>https://s3.ubuntu.home/jenkins</jenkinsUrl>
