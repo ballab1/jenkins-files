@@ -139,7 +139,7 @@
           <podRetention class="org.csanchez.jenkins.plugins.kubernetes.pod.retention.Default"/>
         </org.csanchez.jenkins.plugins.kubernetes.PodTemplate>
       </templates>
-      <serverUrl>https://s5.ubuntu.home:16443</serverUrl>
+      <serverUrl>https://s5.ubuntu.home</serverUrl>
       <skipTlsVerify>true</skipTlsVerify>
       <addMasterProxyEnvVars>true</addMasterProxyEnvVars>
       <capOnlyOnAlivePods>false</capOnlyOnAlivePods>
