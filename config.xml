@@ -68,7 +68,7 @@
         </com.nirima.jenkins.plugins.docker.DockerTemplate>
       </templates>
       <dockerApi>
-        <dockerHost plugin="docker-commons@1.16">
+        <dockerHost plugin="docker-commons@1.17">
           <uri>unix:/var/run/docker.sock</uri>
         </dockerHost>
         <connectTimeout>60</connectTimeout>
@@ -80,7 +80,7 @@
         <disabledByChoice>false</disabledByChoice>
       </disabled>
     </com.nirima.jenkins.plugins.docker.DockerCloud>
-    <org.csanchez.jenkins.plugins.kubernetes.KubernetesCloud plugin="kubernetes@1.26.1">
+    <org.csanchez.jenkins.plugins.kubernetes.KubernetesCloud plugin="kubernetes@1.26.4">
       <name>kubernetes</name>
       <defaultsProviderTemplate></defaultsProviderTemplate>
       <templates>
