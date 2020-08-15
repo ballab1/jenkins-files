@@ -3,7 +3,7 @@
   <scm class="hudson.plugins.scm_sync_configuration.scms.ScmSyncGitSCM"/>
   <scmRepositoryUrl>scm:git:git@github.com:ballab1/jenkins-files.git</scmRepositoryUrl>
   <noUserCommitMessage>true</noUserCommitMessage>
-  <displayStatus>false</displayStatus>
+  <displayStatus>true</displayStatus>
   <commitMessagePattern>[message]</commitMessagePattern>
   <manualSynchronizationIncludes>
     <include>fingerprints/*</include>
