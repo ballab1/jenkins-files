@@ -174,7 +174,7 @@
       <filterQueue>false</filterQueue>
       <properties class="hudson.model.View$PropertyList"/>
     </hudson.model.AllView>
-    <hudson.plugins.view.dashboard.Dashboard plugin="dashboard-view@2.12">
+    <hudson.plugins.view.dashboard.Dashboard plugin="dashboard-view@2.13">
       <owner class="hudson" reference="../../.."/>
       <name>Backup and Restore</name>
       <filterExecutors>false</filterExecutors>
