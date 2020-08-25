@@ -14,7 +14,7 @@
       <parameters/>
       <options/>
     </org.jenkinsci.plugins.pipeline.modeldefinition.actions.DeclarativeJobPropertyTrackerAction>
-    <org.jenkinsci.plugins.workflow.multibranch.JobPropertyTrackerAction plugin="workflow-multibranch@2.21">
+    <org.jenkinsci.plugins.workflow.multibranch.JobPropertyTrackerAction plugin="workflow-multibranch@2.22">
       <jobPropertyDescriptors>
         <string>org.jenkinsci.plugins.workflow.job.properties.DisableConcurrentBuildsJobProperty</string>
         <string>org.jenkinsci.plugins.workflow.job.properties.PipelineTriggersJobProperty</string>
@@ -77,7 +77,7 @@
       </triggers>
     </org.jenkinsci.plugins.workflow.job.properties.PipelineTriggersJobProperty>
   </properties>
-  <definition class="org.jenkinsci.plugins.workflow.cps.CpsScmFlowDefinition" plugin="workflow-cps@2.81">
+  <definition class="org.jenkinsci.plugins.workflow.cps.CpsScmFlowDefinition" plugin="workflow-cps@2.82">
     <scm class="hudson.plugins.git.GitSCM" plugin="git@4.3.0">
       <configVersion>2</configVersion>
       <userRemoteConfigs>
