@@ -1,4 +1,10 @@
 <?xml version='1.1' encoding='UTF-8'?>
 <jenkins.security.UpdateSiteWarningsConfiguration>
-  <ignoredWarnings/>
+  <ignoredWarnings>
+    <string>SECURITY-977</string>
+    <string>SECURITY-966</string>
+    <string>SECURITY-1024</string>
+    <string>SECURITY-1023</string>
+    <string>SECURITY-248</string>
+  </ignoredWarnings>
 </jenkins.security.UpdateSiteWarningsConfiguration>
